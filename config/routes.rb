@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :journeys, only: [:index, :show] do
     resources :itineraries, only: [:create]
   end
-
-  resources :itineraries, only: [:show]
+  resources :itineraries, only: :show
+  resources :users, only: [:show]
 end
