@@ -5,3 +5,38 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts "Cleaning Database..."
+Itinerary.destroy_all
+Journey.destroy_all
+User.destroy_all
+
+puts "Creating User..."
+raph = User.create!(
+  email: "raph@lewagon.com",
+  first_name: "Raph",
+  last_name: "Wow",
+  user_name: "wow-me",
+  password: "111111"
+)
+
+puts "Creating Journey..."
+
+journey = Journey.create!(
+  start_time: Time.now + 3.hours,
+  end_time: Time.now + 5.hours,
+  price: 100,
+  points: 50,
+  co2_emissions: 10,
+  transportation: 'tube'
+)
+
+puts "Creating Itineraries..."
+Itinerary.create!(
+  origin_destination: "Paris",
+  final_destination: "London",
+  journey_id: journey.id,
+  user_id: raph.id
+)
+
+puts 'Finished!'
