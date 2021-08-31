@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_31_105952) do
+ActiveRecord::Schema.define(version: 2021_08_31_110326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 2021_08_31_105952) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "travel_passes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_travel_passes_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -55,4 +63,5 @@ ActiveRecord::Schema.define(version: 2021_08_31_105952) do
 
   add_foreign_key "itineraries", "journeys"
   add_foreign_key "itineraries", "users"
+  add_foreign_key "travel_passes", "users"
 end
