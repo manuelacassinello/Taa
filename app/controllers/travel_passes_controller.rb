@@ -1,0 +1,2 @@
+class TravelPassesController < ApplicationController
+end
