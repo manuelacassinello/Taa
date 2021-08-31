@@ -1,0 +1,7 @@
+<h1>This is the view of journey</h1>
+
+<p>Your journey start at <%= @journey.start_time %>, until <%= @journey.end_time %>, it will last <%=(@journey.end_time - @journey.start_time)/3600%> hours.</p>
+<p>It will cost £<%= @journey.price %></p>
+
+<p>You will be travelling by <%= @journey.transportation %> which emmits <%= @journey.co2_emissions %> Co2/s.</p>
+<p>This adds your tally by <%= @journey.points %> points!</p>
