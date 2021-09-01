@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_31_110326) do
+ActiveRecord::Schema.define(version: 2021_09_01_114641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +18,9 @@ ActiveRecord::Schema.define(version: 2021_08_31_110326) do
   create_table "itineraries", force: :cascade do |t|
     t.string "origin_destination"
     t.string "final_destination"
-    t.bigint "journey_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["journey_id"], name: "index_itineraries_on_journey_id"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 
@@ -35,6 +33,8 @@ ActiveRecord::Schema.define(version: 2021_08_31_110326) do
     t.integer "points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "itinerary_id"
+    t.index ["itinerary_id"], name: "index_journeys_on_itinerary_id"
   end
 
   create_table "travel_passes", force: :cascade do |t|
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_08_31_110326) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "itineraries", "journeys"
   add_foreign_key "itineraries", "users"
+  add_foreign_key "journeys", "itineraries"
   add_foreign_key "travel_passes", "users"
 end
