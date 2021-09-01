@@ -20,9 +20,9 @@ class ItinerariesController < ApplicationController
     @url = 'https://api.mapbox.com/directions/v5/mapbox/cycling/-84.518641,39.134270;-84.512023,39.102779?geometries=geojson'
   end
 
-  # def new
-  # end
-  # #Do we need the new action?
+  def new
+    @itinerary = Itinerary.new
+  end
 
   def create
     @itinerary = Itinerary.new(itinerary_params)

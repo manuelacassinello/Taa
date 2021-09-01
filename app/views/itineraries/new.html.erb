@@ -2,9 +2,13 @@
 <h2> This is the create page of the itinerary. </h2>
   <div class="col-md-6 col-md-offset-1">
 
-    <fieldset id="create_itinerary_div" disabled="true">
-      <%= link_to 'Confirm', create_itinerary_path, method: :post, id: 'confirm_itinerary', class: 'btn btn-success btn-block' %>
-    </fieldset>
+
+
+    <%= simple_form_for(@itinerary) do |f| %>
+      <%= f.input :origin_destination %>
+      <%= f.input :final_destination %>
+      <%= f.submit %>
+    <% end %>
 
   </div>
 
