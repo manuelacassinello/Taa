@@ -34,7 +34,7 @@ puts "Creating Journey..."
 puts "Creating Itineraries..."
 Itinerary.create!(
   origin_destination: "Hoxton",
-  final_destination: "Brixton",
+  final_destination: "Tower of London",
   user_id: raph.id
 )
 
