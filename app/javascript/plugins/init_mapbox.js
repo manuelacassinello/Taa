@@ -32,6 +32,27 @@ const initMapbox = () => {
 
     fitMapToMarkers(map, markers);
 
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0aGplb25nIiwiYSI6ImNrczI3djFjbjIxOXMycXM3aXpwZXJyZWEifQ.1w9UEC3UTR9FhyYOrTQwGg'
+
+    map.addControl(
+      new MapboxDirections({
+        accessToken: mapboxgl.accessToken
+      }),
+      'top-left'
+      );
+
+
+    const instructions = document.getElementById('instructions');
+    const steps = data.legs[0].steps;
+
+    let tripInstructions = '';
+    for (const step of steps) {
+      tripInstructions += `<li>${step.maneuver.instruction}</li>`;
+    }
+    instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
+      data.duration / 60
+    )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
+
   }
 };
 
