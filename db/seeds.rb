@@ -22,20 +22,19 @@ raph = User.create!(
 
 puts "Creating Journey..."
 
-journey = Journey.create!(
-  start_time: Time.now + 3.hours,
-  end_time: Time.now + 5.hours,
-  price: 100,
-  points: 50,
-  co2_emissions: 10,
-  transportation: 'tube'
-)
+# journey = Journey.create!(
+#   start_time: Time.now + 3.hours,
+#   end_time: Time.now + 5.hours,
+#   price: 100,
+#   points: 50,
+#   co2_emissions: 10,
+#   transportation: 'tube'
+# )
 
 puts "Creating Itineraries..."
 Itinerary.create!(
-  origin_destination: "Paris",
-  final_destination: "London",
-  journey_id: journey.id,
+  origin_destination: "Hoxton",
+  final_destination: "Tower of London",
   user_id: raph.id
 )
 
