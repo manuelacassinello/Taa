@@ -2,6 +2,17 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
+    @markers = []
+
+    origin_destination = {
+      lat: Geocoder.search(@itinerary.origin_destination).first.coordinates.first,
+      long: Geocoder.search(@itinerary.origin_destination).last.coordinates.last
+
+    }
+
+
+    @markers << origin_destination
+
   end
 
   # def new
