@@ -3,25 +3,25 @@
   <%= link_to "/", class: "navbar-brand" do %>
     <%= image_tag "https://res.cloudinary.com/manuelacass/image/upload/v1630494962/logo_u8txzk.png" %>
     <% end %>
+</div>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="menu-section">
     <div class="menu-toggle">
-    <div class="one"></div>
-    <div class="two"></div>
-    <div class="three"></div>
+      <div class="one"></div>
+      <div class="two"></div>
+      <div class="three"></div>
     </div>
-     <nav>
+    <nav class="offscreen-nav">
       <ul role="navigation" class="hidden">
-        <li class="list"><a href="#">Log in</a></li>
-        <li class="list"><a href="#">Sign Up</a></li>
+
+        <ul class="list"> <a href="/users/sign_in">Log in</a></ul>
+        <ul class="list1"><a href="/users/sign_up">Sign Up</a></ul>
+
+
+
+
+
+
+
       </ul>
     </nav>
-
-  </div>
-
-
-</div>

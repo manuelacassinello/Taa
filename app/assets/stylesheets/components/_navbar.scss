@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: transparent;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -25,6 +25,7 @@ body {
   right: 25px;
   cursor: pointer;
   color: #000;
+  z-index: 20;
 }
 .one,
 .two,
@@ -55,52 +56,16 @@ body {
   opacity: 0;
 }
 
-
-
-nav ul {
-  margin: 0;
-  padding: 0;
-  font-family: Open Sans;
-  list-style: none;
-  margin: 4em auto;
-  text-align: center;
-}
-nav ul.hidden {
-  display: none;
-}
-
-nav ul a {
-  -moz-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-  text-decoration: none;
-  color: #000;
-  font-size: 14px;
-  line-height:20px;
-  width: 100%;
-  display: block;
-}
-nav ul a:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-nav ul.hidden{
-      display: none;
-    }
-.menu-section.on {
-  border:1px solid black;
-  z-index: 10;
-  width: 20%;
-  display: block;
-  background-color: #fff;
-  color: #000;
+.offscreen-nav {
+  height: 100vh;
+  width: 200px;
+  background-color: $white;
   position: absolute;
-  right: 0;
-
+  right: -200px;
+  transition: .2s;
 }
-.menu-section.hidden{
-  display: none;
-    }
-.menu-toggle.on{
-  display: block;
-    }
+
+.reveal-nav {
+  right: 0px;
+  top: 0px;
+}

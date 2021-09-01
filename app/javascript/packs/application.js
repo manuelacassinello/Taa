@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require('jquery')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -27,6 +28,18 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+
+
+$(".menu-toggle").on('click', function () {
+  $(this).toggleClass("on");
+  $('.menu-section').toggleClass("on");
+  $("nav ul").toggleClass('hidden');
+});
+
+$(".menu-toggle").on('click', function () {
+  $(".offscreen-nav").toggleClass("reveal-nav");
+
+});
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
