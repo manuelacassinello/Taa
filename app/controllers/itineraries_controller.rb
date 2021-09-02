@@ -17,15 +17,15 @@ class ItinerariesController < ApplicationController
     @markers << origin_destination
     @markers << final_destination
 
+    @url = "https://api.mapbox.com/directions/v5/mapbox/cycling/#{origin_destination[:lat]},#{origin_destination[:long]};#{final_destination[:lat]},#{final_destination[:long]}?geometries=geojson"
   end
 
-  # def new
-  # end
-  # #Do we need the new action?
+  def new
+    @itinerary = Itinerary.new
+  end
 
   def create
     @itinerary = Itinerary.new(itinerary_params)
-    @itinerary.journey = @journey
     @itinerary.user = current_user
 
     if @itinerary.save
@@ -38,6 +38,6 @@ class ItinerariesController < ApplicationController
   private
 
   def itinerary_params
-    params.require(:itinerary).permit(:original_destination, :final_destination)
+    params.require(:itinerary).permit(:origin_destination, :final_destination)
   end
 end
