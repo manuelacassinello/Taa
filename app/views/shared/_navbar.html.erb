@@ -1,7 +1,9 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "/", class: "navbar-brand" do %>
-    <%= image_tag "https://res.cloudinary.com/manuelacass/image/upload/v1630494962/logo_u8txzk.png" %>
+    <% unless @home %>
+      <%= image_tag "https://res.cloudinary.com/manuelacass/image/upload/v1630494962/logo_u8txzk.png" %>
+      <% end %>
     <% end %>
 </div>
 
@@ -11,17 +13,53 @@
       <div class="two"></div>
       <div class="three"></div>
     </div>
-    <nav class="offscreen-nav">
+    <nav class="offscreen-nav ">
       <ul role="navigation" class="hidden">
+        <% unless user_signed_in?%>
+          <div class="buttons-nav">
+            <ul class="btn btn-dark my-2"> <a href="/users/sign_in">Log in</a></ul>
+            <ul class="btn btn-dark my-2"><a href="/users/sign_up">Sign Up</a></ul>
+          </div>
+        <% else %>
+          <div class="user-profile">
+              <div class="container mt-5 d-flex justify-content-center my-4 mx-0">
+                  <div class="d-flex align-items-center">
+                  <img class="avatar-large" alt="avatar-large" src="https://res.cloudinary.com/manuelacass/image/upload/v1630588797/HPng_wzgl7n.png" />
+                      <div class="name ml-3 w-100">
+                        <h4 class="mb-0 mt-0">Mr Potter</h4><span>hp@icloud.com</span>
+                      </div>
+                  </div>
+                </div>
+              <div class="container my-3">
+                  <h5 class="trips my-3"> My trips</h5>
+                  <h5 class="wallet my-3">Taa Pass</h5>
+                  <h5 class="my-account my-3">My account</h5>
+                  <h5 class="help my-3">Help</h5>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <h5 class="legal">© V4.667.00987</h5>
+                  <h5 class="developed">Developed by Taa.inc</h5>
+              </div>
+          </div>
 
-        <ul class="list"> <a href="/users/sign_in">Log in</a></ul>
-        <ul class="list1"><a href="/users/sign_up">Sign Up</a></ul>
-
-
-
-
-
-
+        <%end%>
 
       </ul>
     </nav>

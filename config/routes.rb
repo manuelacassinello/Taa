@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
   resources :itineraries, only: :show
   resources :users, only: [:show]
+  resources :travelpasses, only: [:show]
 end
