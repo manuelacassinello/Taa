@@ -37,12 +37,12 @@ const initMapbox = () => {
     console.log(end)
     mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0aGplb25nIiwiYSI6ImNrczI3djFjbjIxOXMycXM3aXpwZXJyZWEifQ.1w9UEC3UTR9FhyYOrTQwGg'
 
-    map.addControl(
-      new MapboxDirections({
-        accessToken: mapboxgl.accessToken
-      }),
-      'top-left'
-      );
+    // map.addControl(
+    //   new MapboxDirections({
+    //     accessToken: mapboxgl.accessToken
+    //   }),
+    //   'top-left'
+    //   );
 
     async function getRoute(transportMethod) {
       // make a directions request using cycling profile
@@ -56,9 +56,6 @@ const initMapbox = () => {
       const json = await query.json();
       const data = json.routes[0];
       const route = data.geometry.coordinates;
-      console.log(data.geometry.coordinates);
-      console.log(route)
-      console.log('route')
       const geojson = {
         type: 'Feature',
         properties: {},
