@@ -17,7 +17,7 @@ class ItinerariesController < ApplicationController
     @markers << origin_destination
     @markers << final_destination
 
-    @url = "https://api.mapbox.com/directions/v5/mapbox/cycling/#{origin_destination[:lat]},#{origin_destination[:long]};#{final_destination[:lat]},#{final_destination[:long]}?geometries=geojson"
+
   end
 
   def new
