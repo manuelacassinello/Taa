@@ -17,7 +17,7 @@
       <ul role="navigation" class="hidden">
         <% unless user_signed_in?%>
           <div class="buttons-nav">
-            <ul class="btn btn-dark my-2"> <a href="/users/sign_in">Log in</a></ul>
+            <ul class="btn btn-dark my-2"> <a href="/users/sign_in">Log In</a></ul>
             <ul class="btn btn-dark my-2"><a href="/users/sign_up">Sign Up</a></ul>
           </div>
         <% else %>
@@ -26,15 +26,15 @@
                   <div class="d-flex align-items-center">
                   <img class="avatar-large" alt="avatar-large" src="https://res.cloudinary.com/manuelacass/image/upload/v1630588797/HPng_wzgl7n.png" />
                       <div class="name ml-3 w-100">
-                        <h4 class="mb-0 mt-0">Mr Potter</h4><span>hp@icloud.com</span>
+                        <h4 class="mb-0 mt-0">Monsieur Potter</h4><span>hp@icloud.com</span>
                       </div>
                   </div>
                 </div>
               <div class="container my-3">
-                  <h5 class="trips my-3"> My trips</h5>
-                  <h5 class="wallet my-3">Taa Pass</h5>
-                  <h5 class="my-account my-3">My account</h5>
-                  <h5 class="help my-3">Help</h5>
+                  <h5 class="trips my-3"><%= link_to 'My Trips'%></h5>
+                  <h5 class="wallet my-3"><%= link_to 'Taa Pass'%></h5>
+                  <h5 class="my-account my-3"><%= link_to 'My Account'%></h5>
+                  <h5 class="help my-3"><%= link_to 'Help'%></h5>
                   <br>
                   <br>
                   <br>
