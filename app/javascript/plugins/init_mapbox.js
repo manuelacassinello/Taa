@@ -1,12 +1,13 @@
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { csrfToken } from "@rails/ujs";
 
 
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
-
+  const id = document.querySelector('.itinerary-id').id
 
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -55,6 +56,9 @@ const initMapbox = () => {
       );
       const json = await query.json();
       const data = json.routes[0];
+      const distance = data.distance;
+      console.log(distance);
+      const duration = data.duration;
       const route = data.geometry.coordinates;
       const geojson = {
         type: 'Feature',
@@ -99,6 +103,21 @@ const initMapbox = () => {
       instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
         data.duration / 60
       )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
+
+      const field = {journey: { distance: distance, duration: duration, transportation: transportMethod } };
+
+      fetch(`/itineraries/${id}/journeys`, {
+        method: 'POST', // or 'PUT'
+        headers: { 'Accept': "application/json", 'X-CSRF-Token': csrfToken(), 'Content-Type': 'application/json'},
+        body: JSON.stringify(field),
+      })
+      .then(response => response.json())
+      .then(field => {
+        console.log('Success:', field);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
     }
     map.on('load', () => {
       // make an initial directions request that
@@ -156,7 +175,11 @@ const initMapbox = () => {
           'circle-color': '#3887be'
         }
       });
-      getRoute('cycling');
+      const transportMethods = ['cycling', 'walking', 'driving'];
+
+      transportMethods.forEach(method => {
+        getRoute(method);
+      });
     });
 
   }

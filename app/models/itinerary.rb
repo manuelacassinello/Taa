@@ -1,5 +1,7 @@
 class Itinerary < ApplicationRecord
   belongs_to :user
+  has_many :journeys
+
   validates :origin_destination, presence: true
   validates :final_destination, presence: true
 

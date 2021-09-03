@@ -11,6 +11,9 @@
     <button class='move-button'><%= link_to 'Make the Move!'%></button>
   </div>
 
+  <div class="itinerary-id" id="<%= @itinerary.id %>">
+  </div>
+
   <div class="map-content">
     <%= @url %>
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
