@@ -1,22 +1,17 @@
 <div class="container">
   <div id="journey-index" class="row">
     <div class="col-md-6 col-md-offset-1">
-      <div class="itinerary-header">
-        <h2> Check how <strong> green </strong> your journey is 🌱 </h2>
-      </div>
       <div class="form">
-        <div class="form-header">
-          <h4> <i> But first: </i> Where to? 🚗 </h4>
-        </div>
-
         <div class="form-content">
           <%= simple_form_for(@itinerary) do |f| %>
-            <%= f.input :origin_destination %>
-            <%= f.input :final_destination %>
-            <%= f.submit %>
+            <%= f.input :origin_destination, label:false, placeholder:"Origin destination", input_html:{class:"inside-form"} %>
+            <%= f.input :final_destination, label:false, placeholder:"Final destination", input_html:{class:"inside-form"}  %>
+            <%= f.submit input_html:{class:"button-form"} %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
+  <%= image_tag'image3.png', class:"image-down"%>
+
 </div>

@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     resources :journeys, only: [:index, :show, :create]
   end
   resources :users, only: [:show]
-  resources :travelpasses, only: [:show]
+  get "travelpass", to: "pages#travelpass"
 end
