@@ -5,6 +5,7 @@ class JourneysController < ApplicationController
 
   def show
     @journey = Journey.find(params[:id])
+    @transport = Transport.where(name: @journey.transportation)
   end
 
   def create
