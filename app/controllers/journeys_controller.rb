@@ -1,6 +1,6 @@
 class JourneysController < ApplicationController
   def index
-    @journeys = Journey.all
+    @journeys = current_user.itineraries.last.journeys
   end
 
   def show
@@ -8,7 +8,6 @@ class JourneysController < ApplicationController
   end
 
   def create
-    p params
     @journey = Journey.new(journey_params)
     @itinerary = Itinerary.find(params[:itinerary_id])
     @journey.itinerary = @itinerary

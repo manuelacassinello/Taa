@@ -6,6 +6,13 @@
       </div>
       <br>
 
+      <div>
+        <% @journeys.each do |journey| %>
+          <p> if you will be <strong><%= journey.transportation %></strong>, your journey will be <%= (journey.distance/1000).round(1) %> km long and last <%= (journey.duration/60).round(0) %> mins!!</p>
+        <% end %>
+      </div>
+
+
   </div>
 
     <div class="panel">
