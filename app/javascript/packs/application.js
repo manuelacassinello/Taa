@@ -29,19 +29,14 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
+import { menuSlide } from "../plugins/menu";
 
 
-$(".menu-toggle").on('click', function () {
-  $(this).toggleClass("on");
-  $('.menu-section').toggleClass("on");
-  $("nav ul").toggleClass('hidden');
-});
 
-$(".menu-toggle").on('click', function () {
-  $(".offscreen-nav").toggleClass("reveal-nav");
 
-});
 
 document.addEventListener('turbolinks:load', () => {
+  menuSlide();
   initMapbox();
+  
 })
