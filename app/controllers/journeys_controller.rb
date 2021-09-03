@@ -1,6 +1,6 @@
 class JourneysController < ApplicationController
   def index
-    @journeys = current_user.itineraries.last.journeys
+    @journeys = current_user.itineraries.last.journeys.first(3)
   end
 
   def show

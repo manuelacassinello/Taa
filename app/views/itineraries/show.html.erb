@@ -8,7 +8,7 @@
     <div id="final">
       <h4> 🔜 To: <%=  @itinerary.final_destination %></h4>
     </div>
-    <button class='move-button'><%= link_to 'Make the Move!'%></button>
+    <button class='move-button'><%= link_to 'Make the Move!', itinerary_journeys_path(@itinerary) %></button>
   </div>
 
   <div class="itinerary-id" id="<%= @itinerary.id %>">
