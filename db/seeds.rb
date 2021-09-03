@@ -38,4 +38,20 @@ Itinerary.create!(
   user_id: raph.id
 )
 
+puts "Creating Transports..."
+Transport.create!(
+  name: "cycling",
+  emissions: 21.0
+)
+
+Transport.create!(
+  name: "walking",
+  emissions: 32.7
+)
+
+Transport.create!(
+  name: "driving",
+  emissions: 168.44
+)
+
 puts 'Finished!'
