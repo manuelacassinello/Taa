@@ -55,6 +55,9 @@ const initMapbox = () => {
       );
       const json = await query.json();
       const data = json.routes[0];
+      const distance = data.distance;
+      console.log(distance);
+      const duration = data.duration;
       const route = data.geometry.coordinates;
       const geojson = {
         type: 'Feature',
@@ -156,7 +159,11 @@ const initMapbox = () => {
           'circle-color': '#3887be'
         }
       });
-      getRoute('cycling');
+      const transportMethods = ['cycling', 'walking', 'driving'];
+
+      transportMethods.forEach(method => {
+        getRoute(method);
+      });
     });
 
   }
