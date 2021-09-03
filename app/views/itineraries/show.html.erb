@@ -2,12 +2,13 @@
   <h1>Voilà, here is your itinerary 🚶🚶‍♀️ </h1>
 
   <div class="destination">
-    <div class="origin">
+    <div id="origin">
       <h4> ⛳ From: <%=  @itinerary.origin_destination %></h4>
     </div>
-    <div class="final">
+    <div id="final">
       <h4> 🔜 To: <%=  @itinerary.final_destination %></h4>
     </div>
+    <button class='move-button'><%= link_to 'Make the Move!'%></button>
   </div>
 
   <div class="map-content">
