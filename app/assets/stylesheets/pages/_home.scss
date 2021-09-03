@@ -8,3 +8,18 @@
   background-size: cover;
   max-width: 100%;
 }
+
+.dot {
+  background: red;
+  border-radius: 50%;
+  height: 20px;
+  position: absolute;
+  top: 58%;
+  left: 50.5%;
+  height: 12px;
+  width: 12px
+}
+
+.dot:hover {
+  background: rgb(54, 228, 54);
+}
