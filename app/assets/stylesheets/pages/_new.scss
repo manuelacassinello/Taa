@@ -1,20 +1,17 @@
 
-.itinerary-header {
-  padding: 2px;
-  margin-top: 32px;
-}
-
 .form {
   z-index: 15;
   position: relative;
-  background: $white;
-  width: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 80px rgba($green, .2);
+  background:$light-gray ;
+  width: 320px;
+  border-radius: 25px;
+  box-shadow: 0 0 4px rgba($black, .2);
   box-sizing: border-box;
-  margin: 100px auto 10px;
+  margin: 30px auto 10px;
   overflow: hidden;
   padding: 20px;
+  height: 190px;
+
 }
 
 .form-content {
@@ -25,4 +22,29 @@
   label{
     font-size: 12px;
   }
+}
+.inside-form{
+  border-radius: 14px;
+  border-color:white;
+  font-family: "Roboto";
+
+}
+input{
+  color: white;
+  background-color: $black;
+  border-radius: 14px;
+  width: 270px;
+  height: 35px;
+  border-color: $black;
+}
+
+.image-down{
+  padding-top: 15px;
+  height: 57vh;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  max-width: 100%;
+  padding-left: 15px;
 }
