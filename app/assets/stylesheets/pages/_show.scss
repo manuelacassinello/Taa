@@ -9,3 +9,21 @@
   overflow-y: scroll;
   font-family: sans-serif;
 }
+
+.itinerary-show {
+  padding: 16px;
+}
+
+.destination {
+  padding: 21px;
+  border-radius: 12px;
+  box-shadow: 0 0 80px rgba($green, .1);
+  box-sizing: border-box;
+  z-index: 15;
+  position: relative;
+  width: auto;
+}
+
+.map-content {
+  padding: 12px;
+}

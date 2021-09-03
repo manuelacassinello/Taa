@@ -1,17 +1,26 @@
-<h1>Here is your itinerary 🚶</h1>
+<div class="itinerary-show">
+  <h1>Voilà, here is your itinerary 🚶🚶‍♀️ </h1>
 
+  <div class="destination">
+    <div class="origin">
+      <h4> ⛳ From: <%=  @itinerary.origin_destination %></h4>
+    </div>
+    <div class="final">
+      <h4> 🔜 To: <%=  @itinerary.final_destination %></h4>
+    </div>
+  </div>
 
-<p> <%=  @itinerary.origin_destination %></p>
-<p> <%=  @itinerary.final_destination %></p>
+  <div class="map-content">
+    <%= @url %>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+    <div id="instructions"></div>
 
-<%= @url %>
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
-<div id="instructions"></div>
-
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-     data-url = "<%= @url %>"
-     ></div>
+    <div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-url = "<%= @url %>"
+        ></div>
+  </div>
+</div>
