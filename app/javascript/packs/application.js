@@ -45,3 +45,7 @@ $(".menu-toggle").on('click', function () {
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
 })
+
+document.getElementById("red-dot").addEventListener('click', () => {
+  location.href = 'http://www.taatogether.com/itineraries/new'
+}, true);
