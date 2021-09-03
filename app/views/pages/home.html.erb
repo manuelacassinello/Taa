@@ -3,5 +3,7 @@
   <br>
 <div class="home-page">
   <div class="master-container" style="background-image: url(<%= asset_url 'homepage.png' %>);"></div>
-  <div class="dot" id="red-dot"></div>
+  <%= link_to new_itinerary_path do %>
+    <div class="dot" id="red-dot"></div>
+  <% end %>
 </div>
