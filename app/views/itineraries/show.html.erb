@@ -28,7 +28,7 @@
       <div>
         <% @journeys.each do |journey| %>
           <div>
-            <p> <%= journey.transportation %>, <%= (journey.distance/1000).round(1) %> km, <%= (journey.duration/60).round(0) %> mins <%= link_to 'see me', itinerary_journey_path(journey.itinerary_id, journey)%></p>
+            <p> <%= journey.transportation %>, <%= (journey.distance/1000).round(1) %> km, <%= (journey.duration/60).round(0) %> mins <%= link_to 'see me', journey_path(journey)%></p>
           </div>
         <% end %>
       </div>
