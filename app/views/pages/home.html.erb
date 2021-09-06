@@ -1,9 +1,15 @@
-
   <br>
   <br>
-<div class="home-page">
-  <div class="master-container" style="background-image: url(<%= asset_url 'homepage.png' %>);"></div>
-  <%= link_to new_itinerary_path do %>
-    <div class="dot" id="red-dot"></div>
-  <% end %>
+<%= render 'splash_image' %>
+<%= image_tag'logo4.png', class:"image-top"%>
+<div class="home-container">
+   <div class="locat">
+     <p> Where to now? </p>
+   </div>
+    <%= link_to new_itinerary_path do %>
+    <div class="arrow bounce"></div>
+    <% end %>
 </div>
+<div id="home-map"
+     style="width: 100%; height: 600px;"
+     data-mapbox-api-key="<%= ENV[''] %>"></div>
