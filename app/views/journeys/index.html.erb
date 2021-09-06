@@ -20,18 +20,16 @@
       <div class="cards-wrap">
         <div class="row">
           <% @journeys.each do |journey| %>
-            <div class="card-journey"> <strong><%= journey.transportation.upcase %></strong>: <%= (journey.distance/1000).round(1) %> km | <%= (journey.duration/60).round(0) %> minutes </div>
+            <%= link_to journey_path(journey) do %>
+              <div class="card-journey"> <strong><%= journey.transportation.upcase %></strong>: <%= (journey.distance/1000).round(1) %> km | <%= (journey.duration/60).round(0) %> minutes </div>
+            <% end %>
           <% end %>
         </div>
       </div>
-
     </div>
 
     <div>
     </div>
   </div>
 
-    <div class="journey-panel">
-      <h3 class="text-center"><%= link_to 'Confirm' %></h3>
-    </div>
 </div>
