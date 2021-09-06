@@ -1,6 +1,6 @@
 class JourneysController < ApplicationController
   def index
-    @journeys = current_user.itineraries.last.journeys.first(3)
+    @journeys = current_user.itineraries.last.journeys.first(3).sort_by { |journey| journey.total_emissions }
   end
 
   def show
