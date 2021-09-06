@@ -1,21 +1,35 @@
 <div id="journey-index" class="row">
   <div class="col-md-6 col-md-offset-1">
 
-      <div class="row">
-      <h2> <%= link_to 'Where to Now 🌳', root_path %> </h2>
+    <div class="journey-header">
+      <h2> Trip Details 🌳 </h2>
+    </div>
+
+    <br>
+
+    <div class="destination">
+      <div id="origin">
+        <h4> ⛳ From: <%=  @journeys.first.itinerary.origin_destination %></h4>
       </div>
-      <br>
-
-      <div>
-        <% @journeys.each do |journey| %>
-          <p> if you will be <strong><%= journey.transportation %></strong>, your journey will be <%= (journey.distance/1000).round(1) %> km long and last <%= (journey.duration/60).round(0) %> mins!!</p>
-        <% end %>
+      <div id="final">
+        <h4> 🔜 To: <%=  @journeys.first.itinerary.final_destination %></h4>
       </div>
+    </div>
 
+    <div class="wrapper">
+      <div class="cards-wrap">
+        <div class="row">
+          <% @journeys.each do |journey| %>
+            <%= link_to journey_path(journey) do %>
+              <div class="card-journey"> <strong><%= journey.transportation.upcase %></strong>: <%= (journey.distance/1000).round(1) %> km | <%= (journey.duration/60).round(0) %> minutes </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
+    <div>
+    </div>
   </div>
 
-    <div class="panel">
-      <h3 class="text-center">Current Status</h3>
-    </div>
 </div>

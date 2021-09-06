@@ -11,7 +11,6 @@
   overflow: hidden;
   padding: 20px;
   height: 190px;
-
 }
 
 .form-content {
@@ -23,12 +22,14 @@
     font-size: 12px;
   }
 }
-.inside-form{
+
+.inside-form {
   border-radius: 14px;
   border-color:white;
   font-family: "Roboto";
 
 }
+
 input{
   color: white;
   background-color: $black;
