@@ -1,10 +1,29 @@
 class JourneysController < ApplicationController
   def index
-    @journeys = current_user.itineraries.last.journeys.first(3)
+    @journeys = current_user.itineraries.last.journeys.first(3).sort_by { |journey| journey.total_emissions }
   end
 
   def show
     @journey = Journey.find(params[:id])
+    @itinerary = @journey.itinerary
+    @transport = Transport.where(name: @journey.transportation)
+
+    @markers = []
+
+    origin_destination = {
+      lat: Geocoder.search(@itinerary.origin_destination).first.coordinates.first,
+      long: Geocoder.search(@itinerary.origin_destination).last.coordinates.last
+    }
+
+    final_destination = {
+      lat: Geocoder.search(@itinerary.final_destination).first.coordinates.first,
+
+      long: Geocoder.search(@itinerary.final_destination).first.coordinates.last
+    }
+    @markers << origin_destination
+    @markers << final_destination
+
+
   end
 
   def create

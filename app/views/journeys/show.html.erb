@@ -1,7 +1,42 @@
-<h1>This is the view of journey</h1>
+<div class="journey-show">
+  <h1>Things to know about your journey</h1>
 
-<p>Your journey start at <%= @journey.start_time %>, until <%= @journey.end_time %>, it will last <%=(@journey.end_time - @journey.start_time)/3600%> hours.</p>
-<p>It will cost £<%= @journey.price %></p>
+  <div class="journey-info">
+    <div class="destination">
+      <div id="origin">
+        <h4> ⛳ From: <%=  @journeys %></h4>
+      </div>
+      <div id="final">
+        <h4> 🔜 To: <%=  @journeys %></h4>
+      </div>
+    </div>
 
-<p>You will be travelling by <%= @journey.transportation %> which emmits <%= @journey.co2_emissions %> Co2/s.</p>
-<p>This adds your tally by <%= @journey.points %> points!</p>
+    <div class="time-price">
+
+    </div>
+
+    <div class="emission-points">
+      <p>You will be travelling by <%= @journey.transportation %> and the carbon emission for this journey is <%= @journey.total_emissions %> g CO2/km.</p>
+      <p>You have gained 100 TAA. points!</p>
+    </div>
+  </div>
+</div>
+
+<div class="itinerary-id" id="<%= @journey.itinerary_id %>">
+<div class="journey-id" id="<%= @journey.id %>">
+
+<div class="map-content">
+  <%= @url %>
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
+
+
+  <div id="map"
+    style="width: 100%; height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-url = "<%= @url %>"
+    >
+  </div>
+  <div id="instructions"></div>
+</div>

@@ -6,23 +6,33 @@
     <div id="final">
       <h4> 🔜 To: <%=  @itinerary.final_destination %></h4>
     </div>
-    <button class='move-button'><%= link_to 'Make the Move!', itinerary_journeys_path(@itinerary) %></button>
   </div>
 
   <div class="itinerary-id" id="<%= @itinerary.id %>">
   </div>
 
-  <div class="map-content">
-    <%= @url %>
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
-    <div id="instructions"></div>
 
-    <div id="map"
-        style="width: 100%; height: 600px;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-        data-url = "<%= @url %>"
-        ></div>
+
+  <div class="map-content">
+
+    <div id="simple"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-url = "<%= @url %>"
+      ></div>
   </div>
+
+  <div class="wrapper">
+    <div class="cards-wrap">
+      <div class="row">
+        <% @journeys.each do |journey| %>
+          <%= link_to journey_path(journey) do %>
+            <div class="card-journey"> <strong><%= journey.transportation.upcase %></strong>: <%= (journey.distance/1000).round(1) %> km | <%= (journey.duration/60).round(0) %> minutes</div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 </div>
