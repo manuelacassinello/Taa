@@ -5,7 +5,25 @@ class JourneysController < ApplicationController
 
   def show
     @journey = Journey.find(params[:id])
+    @itinerary = @journey.itinerary
     @transport = Transport.where(name: @journey.transportation)
+
+    @markers = []
+
+    origin_destination = {
+      lat: Geocoder.search(@itinerary.origin_destination).first.coordinates.first,
+      long: Geocoder.search(@itinerary.origin_destination).last.coordinates.last
+    }
+
+    final_destination = {
+      lat: Geocoder.search(@itinerary.final_destination).first.coordinates.first,
+
+      long: Geocoder.search(@itinerary.final_destination).first.coordinates.last
+    }
+    @markers << origin_destination
+    @markers << final_destination
+
+
   end
 
   def create

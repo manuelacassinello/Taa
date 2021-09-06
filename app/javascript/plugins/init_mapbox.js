@@ -6,15 +6,50 @@ import { csrfToken } from "@rails/ujs";
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
+  const simpleMap = document.getElementById('simple');
+
+  const id_itinerary = document.querySelector('.itinerary-id').id
+
+  if (simpleMap) {
+    mapboxgl.accessToken = simpleMap.dataset.mapboxApiKey;
+    const map = new mapboxgl.Map({
+      container: 'simple',
+      style: 'mapbox://styles/manuelacass/ckt8lvgp552uj17mwmogl2x47'
+    });
+    console.log(map);
+
+    const fitMapToMarkers = (map, markers) => {
+      const bounds = new mapboxgl.LngLatBounds();
+      markers.forEach(marker => bounds.extend([marker.long, marker.lat]));
+      map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+    };
+
+    const markers = JSON.parse(simpleMap.dataset.markers);
+    console.log(typeof (markers))
+    markers.forEach((marker) => {
+      new mapboxgl.Marker()
+        .setLngLat([marker.long, marker.lat])
+        .addTo(map);
+    });
+
+    fitMapToMarkers(map, markers);
+    const start = [markers[0].long, markers[0].lat];
+    console.log(markers[0])
+    const end = [markers[1].long, markers[1].lat];
+    console.log(end)
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0aGplb25nIiwiYSI6ImNrczI3djFjbjIxOXMycXM3aXpwZXJyZWEifQ.1w9UEC3UTR9FhyYOrTQwGg'
+  }
 
 
-  const id = document.querySelector('.itinerary-id').id
+
 
   if (mapElement) { // only build a map if there's a div#map to inject into
+    const id_journey = document.querySelector('.journey-id').id
+
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/manuelacass/ckt8lvgp552uj17mwmogl2x47'
     });
 
     const fitMapToMarkers = (map, markers) => {
@@ -107,7 +142,7 @@ const initMapbox = () => {
 
       const field = {journey: { distance: distance, duration: duration, transportation: transportMethod } };
 
-      fetch(`/itineraries/${id}/journeys`, {
+      fetch(`/itineraries/${id_itinerary}/journeys/${id_journey}`, {
         method: 'POST', // or 'PUT'
         headers: { 'Accept': "application/json", 'X-CSRF-Token': csrfToken(), 'Content-Type': 'application/json'},
         body: JSON.stringify(field),

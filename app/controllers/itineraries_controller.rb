@@ -19,7 +19,6 @@ class ItinerariesController < ApplicationController
     @markers << origin_destination
     @markers << final_destination
 
-
   end
 
   def new
