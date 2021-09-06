@@ -13,7 +13,6 @@ class ItinerariesController < ApplicationController
 
     final_destination = {
       lat: Geocoder.search(@itinerary.final_destination).first.coordinates.first,
-
       long: Geocoder.search(@itinerary.final_destination).first.coordinates.last
     }
     @markers << origin_destination

@@ -2,13 +2,22 @@
   <h1>Things to know about your journey</h1>
 
   <div class="journey-info">
+    <div class="destination">
+      <div id="origin">
+        <h4> ⛳ From: <%=  @journeys %></h4>
+      </div>
+      <div id="final">
+        <h4> 🔜 To: <%=  @journeys %></h4>
+      </div>
+    </div>
+
     <div class="time-price">
 
     </div>
 
     <div class="emission-points">
-      <p>You will be travelling by <%= @transport.name %> which emmits <%= @journey.total_emissions %> g CO2/km.</p>
-      <p>This adds your tally by 100 points!</p>
+      <p>You will be travelling by <%= @journey.transportation %> and the carbon emission for this journey is <%= @journey.total_emissions %> g CO2/km.</p>
+      <p>You have gained 100 TAA. points!</p>
     </div>
   </div>
 </div>
