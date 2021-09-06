@@ -58,7 +58,8 @@ body {
 
 .offscreen-nav {
   height: 100vh;
-  width: 205px;
+  width: 0;
+  overflow: hidden;
   background-color: $white;
   position: absolute;
   right: -200px;
@@ -72,6 +73,8 @@ body {
 .reveal-nav {
   right: 0px;
   top: 0px;
+  width: 205px !important;
+  overflow: hidden !important;
 }
 
 .buttons-nav{

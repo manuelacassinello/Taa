@@ -35,17 +35,18 @@ import { initAutocomplete } from "../plugins/init_autocomplete";
 
 
 
-const splashImg = document.querySelector(".splash-img");
 
 document.addEventListener('turbolinks:load', () => {
 
+  const splashImg = document.querySelector(".splash-img");
   window.setTimeout(function () {
     splashImg.style.opacity = 0;
   }, 2000);
-
   window.setTimeout(function () {
     splashImg.classList.add("d-none");
   }, 3000);
+
+
 
   menuSlide();
   initAutocomplete();
