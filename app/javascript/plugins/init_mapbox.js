@@ -7,8 +7,10 @@ import { csrfToken } from "@rails/ujs";
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
   const simpleMap = document.getElementById('simple');
-
-  const id_itinerary = document.querySelector('.itinerary-id').id
+  const itinerary = document.querySelector('.itinerary-id')
+  if (itinerary) {
+    const id_itinerary = itinerary.id
+  }
 
   if (simpleMap) {
     mapboxgl.accessToken = simpleMap.dataset.mapboxApiKey;
