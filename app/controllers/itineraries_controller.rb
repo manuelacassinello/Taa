@@ -2,6 +2,8 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
+    @journeys = Journey.all.first(3)
+
     @markers = []
 
     origin_destination = {

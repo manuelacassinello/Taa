@@ -7,6 +7,7 @@ import { csrfToken } from "@rails/ujs";
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
 
+
   const id = document.querySelector('.itinerary-id').id
 
   if (mapElement) { // only build a map if there's a div#map to inject into
