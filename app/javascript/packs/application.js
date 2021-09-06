@@ -35,8 +35,12 @@ import { menuSlide } from "../plugins/menu";
 
 
 
+const splashImg = document.querySelector(".splash-img");
+
 document.addEventListener('turbolinks:load', () => {
+
   menuSlide();
+
   initMapbox();
 })
 
