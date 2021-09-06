@@ -23,13 +23,13 @@
       ></div>
   </div>
 
-  <div class="col-md-6 col-md-offset-1">
-    <div class="row">
-      <div>
+  <div class="wrapper">
+    <div class="cards-wrap">
+      <div class="row">
         <% @journeys.each do |journey| %>
-          <div>
-            <p> <%= journey.transportation %>, <%= (journey.distance/1000).round(1) %> km, <%= (journey.duration/60).round(0) %> mins <%= link_to 'see me', journey_path(journey)%></p>
-          </div>
+          <%= link_to journey_path(journey) do %>
+            <div class="card-journey"> <strong><%= journey.transportation.upcase %></strong>: <%= (journey.distance/1000).round(1) %> km | <%= (journey.duration/60).round(0) %> minutes</div>
+          <% end %>
         <% end %>
       </div>
     </div>
