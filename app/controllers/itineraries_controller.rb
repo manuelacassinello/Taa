@@ -2,6 +2,8 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary = Itinerary.find(params[:id])
+    @journeys = Journey.all.first(3)
+
     @markers = []
 
     origin_destination = {
@@ -11,12 +13,10 @@ class ItinerariesController < ApplicationController
 
     final_destination = {
       lat: Geocoder.search(@itinerary.final_destination).first.coordinates.first,
-
       long: Geocoder.search(@itinerary.final_destination).first.coordinates.last
     }
     @markers << origin_destination
     @markers << final_destination
-
 
   end
 

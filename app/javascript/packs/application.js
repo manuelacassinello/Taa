@@ -29,29 +29,61 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
+import { menuSlide } from "../plugins/menu";
 
 
-$(".menu-toggle").on('click', function () {
-  $(this).toggleClass("on");
-  $('.menu-section').toggleClass("on");
-  $("nav ul").toggleClass('hidden');
-});
 
-$(".menu-toggle").on('click', function () {
-  $(".offscreen-nav").toggleClass("reveal-nav");
 
-});
 
 const splashImg = document.querySelector(".splash-img");
 
 document.addEventListener('turbolinks:load', () => {
-  window.setTimeout(function(){
-    splashImg.style.opacity = 0;
-  }, 2000);
 
-  window.setTimeout(function () {
-    splashImg.classList.add("d-none");
-  }, 3000);
+  menuSlide();
 
   initMapbox();
 })
+
+document.addEventListener('click', () => {
+  // how to add extra dots for the new page
+}, true)
+
+// figure out the clock feature on the home page
+class DigitalClock {
+  constructor(element) {
+    this.element = element;
+  }
+
+  start() {
+    this.update();
+
+    setInterval(() => {
+      this.update();
+    }, 500);
+  }
+
+  update() {
+    const parts = this.getTimeParts();
+    const minuteFormatted = parts.minute.toString().padStart(2, "0");
+    const timeFormatted = `${parts.hour}:${minuteFormatted}`;
+    const amPm = parts.isAm ? "AM" : "PM";
+
+    this.element.querySelector(".clock-time").textContent = timeFormatted;
+    this.element.querySelector(".clock-ampm").textContent = amPm;
+  }
+
+  getTimeParts() {
+    const now = new Date();
+
+    return {
+      hour: now.getHours() % 12 || 12,
+      minute: now.getMinutes(),
+      isAm: now.getHours() < 12
+    };
+  }
+}
+
+const clockElement = document.querySelector(".clock");
+const clockObject = new DigitalClock(clockElement);
+
+clockObject.start();
