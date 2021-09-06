@@ -39,6 +39,14 @@ const splashImg = document.querySelector(".splash-img");
 
 document.addEventListener('turbolinks:load', () => {
 
+  window.setTimeout(function () {
+    splashImg.style.opacity = 0;
+  }, 2000);
+
+  window.setTimeout(function () {
+    splashImg.classList.add("d-none");
+  }, 3000);
+
   menuSlide();
   initAutocomplete();
   initMapbox();
