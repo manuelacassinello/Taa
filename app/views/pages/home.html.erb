@@ -4,12 +4,14 @@
 
 <%= image_tag'logo4.png', class:"image-top"%>
 <div class="home-container">
-   <div class="locat">
-     <p> Where to now? </p>
-   </div>
-    <%= link_to new_itinerary_path do %>
-    <div class="arrow bounce"></div>
+   <div class="locat p-0">
+     <%= simple_form_for :search, url: new_itinerary_path, method: :get do |f| %>
+      <%= f.input :final, label: false, placeholder:"Where to now?", input_html: {class: 'address-input'} %>
+      <%= f.button :button do %>
+        <div class="arrow bounce"></div>
+      <% end %>
     <% end %>
+   </div>
 </div>
 
 <div class="home-map-container">
