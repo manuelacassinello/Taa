@@ -5,3 +5,39 @@
 .ap-footer svg {
   display: none !important;
 }
+
+
+.destination {
+  padding: 22px;
+  border-radius: 14px;
+  color: $white;
+  box-shadow: 0 0 80px rgba($green, .1);
+  box-sizing: border-box;
+  z-index: 15;
+  position: relative;
+  width: 340px;
+  background-color: $black;
+  margin-bottom: 10px;
+  font-family: "Roboto";
+}
+
+h5{
+  font-weight: bolder;
+  font-family: "Roboto";
+  padding-left:"40px";
+}
+
+h4{
+  font-size: 14px;
+  font-family: "Roboto";
+  padding-left:"50px";
+}
+.image-side{
+    vertical-align: middle;
+    border-style: none;
+    /* top: 10%; */
+    bottom: 15%;
+    width: 34px;
+    height: 120px;
+    position: absolute;
+}

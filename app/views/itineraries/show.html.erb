@@ -1,10 +1,13 @@
 <div class="itinerary-show">
   <div class="destination">
     <div id="origin">
-      <h4> ⛳ From: <%=  @itinerary.origin_destination %></h4>
+      <%= image_tag'illu2.png', class:"image-side"%>
+      <h5> Origin: </h5>
+      <h4> <%=  @itinerary.origin_destination %></h4>
     </div>
     <div id="final">
-      <h4> 🔜 To: <%=  @itinerary.final_destination %></h4>
+      <h5> Destination: </h5>
+      <h4> <%=  @itinerary.final_destination %></h4>
     </div>
   </div>
 
