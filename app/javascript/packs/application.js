@@ -39,12 +39,14 @@ import { initAutocomplete } from "../plugins/init_autocomplete";
 document.addEventListener('turbolinks:load', () => {
 
   const splashImg = document.querySelector(".splash-img");
-  window.setTimeout(function () {
-    splashImg.style.opacity = 0;
-  }, 2000);
-  window.setTimeout(function () {
-    splashImg.classList.add("d-none");
-  }, 3000);
+  if (splashImg) {
+    window.setTimeout(function () {
+      splashImg.style.opacity = 0;
+    }, 2000);
+    window.setTimeout(function () {
+      splashImg.classList.add("d-none");
+    }, 3000);
+  }
 
 
 
