@@ -100,7 +100,7 @@ const initMapbox = () => {
     console.log(start);
     const end = [markers[1].long, markers[1].lat];
     console.log(end);
-    mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0aGplb25nIiwiYSI6ImNrczI3djFjbjIxOXMycXM3aXpwZXJyZWEifQ.1w9UEC3UTR9FhyYOrTQwGg'
+    mapboxgl.accessToken = mapElement.dataset.mapboxApiKey
 
     async function getRoute(transportMethod) {
       // make a directions request using cycling profile
