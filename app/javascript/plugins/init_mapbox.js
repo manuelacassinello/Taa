@@ -54,9 +54,9 @@ const initMapbox = () => {
     });
 
     fitMapToMarkers(map, markers);
-    // const start = [markers[0].long, markers[0].lat];
-    // const end = [markers[1].long, markers[1].lat];
-    // mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0aGplb25nIiwiYSI6ImNrczI3djFjbjIxOXMycXM3aXpwZXJyZWEifQ.1w9UEC3UTR9FhyYOrTQwGg'
+    const start = [markers[0].long, markers[0].lat];
+    const end = [markers[1].long, markers[1].lat];
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0aGplb25nIiwiYSI6ImNrczI3djFjbjIxOXMycXM3aXpwZXJyZWEifQ.1w9UEC3UTR9FhyYOrTQwGg'
   }
 
 
@@ -97,7 +97,9 @@ const initMapbox = () => {
     })
     fitMapToMarkers(map, markers);
     const start = [markers[0].long, markers[0].lat];
+    console.log(start);
     const end = [markers[1].long, markers[1].lat];
+    console.log(end);
     mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0aGplb25nIiwiYSI6ImNrczI3djFjbjIxOXMycXM3aXpwZXJyZWEifQ.1w9UEC3UTR9FhyYOrTQwGg'
 
     async function getRoute(transportMethod) {
