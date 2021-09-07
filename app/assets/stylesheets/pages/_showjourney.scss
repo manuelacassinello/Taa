@@ -11,3 +11,77 @@
   background-color: white;
   padding: 16px;
 }
+
+#instructions p{
+ display:none;
+}
+
+// #instructions ol{
+//   list-style-image: url(bullet.png) ;
+// }
+.minutes{
+ background: black;
+    color: white;
+    width: 163px;
+    height: 45px;
+    border-radius: 24px;
+    padding: 11px;
+    padding-left: 60px;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    margin-bottom: 24px;
+    margin-top: -10px;
+
+}
+
+// #instructions li::marker{
+//   line-height: 10px;
+//   margin-top: 5px;
+//   width: 4px;
+//   content: url(bullet.png) ;
+//   padding-top: 60px;
+// }
+// #instructions li {
+//   font-family: "Roboto";
+
+// }
+
+
+.list-instructions {
+  li {
+    list-style-type: none;
+    width: 282px;
+    display: flex;
+    background: $light-gray;
+    border-radius: 12px;
+    margin-left: -35px;
+    padding: 8px;
+    margin-block: 8px;
+  }
+
+  li:before {
+    content: url(arrow.svg) ;
+  }
+}
+
+.destinations{
+  margin-top: 20px;
+    padding: 20px;
+    /* margin-right: 20px; */
+    width: 312px;
+    margin-left: 30px;
+    border-radius: 14px;
+    color: #000;
+    box-sizing: border-box;
+    z-index: 15;
+    position: relative;
+    height: 100px;
+    background-color: #EDECEC;
+    margin-bottom: 10px;
+    font-family: "Roboto";
+}
+
+#map{
+  padding:22px;
+}

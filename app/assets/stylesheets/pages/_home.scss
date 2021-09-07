@@ -33,8 +33,8 @@
     width: 320px;
     border-radius: 29px;
     box-sizing: border-box;
-    margin: 30px auto 10px;
-    // overflow: hidden;
+    margin: 17px auto 10px;
+    overflow: hidden;
     padding: 20px;
     height: 80px;
 }
@@ -69,7 +69,8 @@ p {
     justify-content: center;
     background-size: cover;
     max-width: 100%;
-    padding-left: 55px;
+    padding-left: 53px;
+    margin-top: -26px;
 }
 
 
@@ -186,8 +187,8 @@ svg{
   top: 5%;
 }
 
-
-
+#home-map{
+  border-radius: 14px;
 .search_final {
   .ap-input-icon svg{
     fill: #FBFBFB !important;
