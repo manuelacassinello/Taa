@@ -62,5 +62,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Allows to see on phone format
-  config.hosts << "d2b1-37-157-32-162.ngrok.io"
+  config.hosts << /[a-z0-9-]+\.ngrok\.io/
 end
