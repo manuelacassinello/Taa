@@ -124,7 +124,7 @@ const initMapbox = () => {
             'line-cap': 'round'
           },
           paint: {
-            'line-color': '#3887be',
+            'line-color': '#000000',
             'line-width': 5,
             'line-opacity': 0.75
           }
@@ -136,11 +136,11 @@ const initMapbox = () => {
 
       let tripInstructions = '';
       for (const step of steps) {
-        tripInstructions += `<li>${step.maneuver.instruction}</li>`;
+        tripInstructions += `<li >${step.maneuver.instruction}</li>`;
       }
-      instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
+      instructions.innerHTML = `<div><p style="position: revert !important;"><strong>Trip duration: ${Math.floor(
         data.duration / 60
-      )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
+      )} min </strong></p><ol>${tripInstructions}</ol></div>`;
 
       const field = {journey: { distance: distance, duration: duration, transportation: transportMethod } };
 
@@ -184,8 +184,8 @@ const initMapbox = () => {
           }
         },
         paint: {
-          'circle-radius': 10,
-          'circle-color': '#3887be'
+          'circle-radius': 1,
+          'circle-color': '#000000'
         }
       });
       // this is where the code from the next step will go
@@ -209,8 +209,8 @@ const initMapbox = () => {
           }
         },
         paint: {
-          'circle-radius': 10,
-          'circle-color': '#3887be'
+          'circle-radius': 1,
+          'circle-color': '#000000'
         }
       });
       const transportMethods = ['cycling', 'walking', 'driving'];
