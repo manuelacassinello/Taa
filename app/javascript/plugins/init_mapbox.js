@@ -35,8 +35,20 @@ const initMapbox = () => {
     };
 
     const markers = JSON.parse(simpleMap.dataset.markers);
+
     markers.forEach((marker) => {
-      new mapboxgl.Marker()
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${marker.image_url}')`;
+      console.log(element.style.backgroundImage)
+      element.style.backgroundSize = 'cover';
+      element.style.backgroundRepeat = 'no-repeat';
+      element.style.backgroundPosition = 'center';
+      element.style.width = '25px';
+      element.style.height = '38px';
+
+
+      new mapboxgl.Marker(element)
         .setLngLat([marker.long, marker.lat])
         .addTo(map);
     });
@@ -68,22 +80,27 @@ const initMapbox = () => {
 
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
-      new mapboxgl.Marker()
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${marker.image_url}')`;
+      console.log(element.style.backgroundImage)
+      element.style.backgroundSize = 'cover';
+      element.style.backgroundRepeat = 'no-repeat';
+      element.style.backgroundPosition = 'center';
+      element.style.width = '25px';
+      element.style.height = '38px';
+
+
+      new mapboxgl.Marker(element)
         .setLngLat([marker.long, marker.lat])
         .addTo(map);
-    });
-
+    })
     fitMapToMarkers(map, markers);
     const start = [markers[0].long, markers[0].lat];
+    console.log(start);
     const end = [markers[1].long, markers[1].lat];
+    console.log(end);
     mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0aGplb25nIiwiYSI6ImNrczI3djFjbjIxOXMycXM3aXpwZXJyZWEifQ.1w9UEC3UTR9FhyYOrTQwGg'
-
-    // map.addControl(
-    //   new MapboxDirections({
-    //     accessToken: mapboxgl.accessToken
-    //   }),
-    //   'top-left'
-    //   );
 
     async function getRoute(transportMethod) {
       // make a directions request using cycling profile
@@ -218,18 +235,13 @@ const initMapbox = () => {
           'circle-color': '#000000'
         }
       });
-      // const transportMethods = ['cycling', 'walking', 'driving'];
 
-      // transportMethods.forEach(method => {
-      //   getRoute(method);
-      // });
       const journeyWrapper = document.querySelector('.journey-show');
       if (journeyWrapper) {
         const transportationMethod = journeyWrapper.dataset.transportationMethod;
         getRoute(transportationMethod);
       }
     });
-
   }
 };
 
