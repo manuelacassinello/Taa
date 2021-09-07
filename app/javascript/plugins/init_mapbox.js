@@ -7,9 +7,18 @@ import { csrfToken } from "@rails/ujs";
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
   const simpleMap = document.getElementById('simple');
+  const homeMap = document.getElementById('home-map');
   const itinerary = document.querySelector('.itinerary-id')
   if (itinerary) {
     const id_itinerary = itinerary.id
+  }
+
+  if (homeMap) {
+    mapboxgl.accessToken = homeMap.dataset.mapboxApiKey;
+    const map = new mapboxgl.Map({
+      container: 'home-map',
+      style: 'mapbox://styles/manuelacass/ckt8lvgp552uj17mwmogl2x47'
+    });
   }
 
   if (simpleMap) {
