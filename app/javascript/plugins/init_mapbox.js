@@ -35,8 +35,20 @@ const initMapbox = () => {
     };
 
     const markers = JSON.parse(simpleMap.dataset.markers);
+
     markers.forEach((marker) => {
-      new mapboxgl.Marker()
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${marker.image_url}')`;
+      console.log(element.style.backgroundImage)
+      element.style.backgroundSize = 'cover';
+      element.style.backgroundRepeat = 'no-repeat';
+      element.style.backgroundPosition = 'center';
+      element.style.width = '25px';
+      element.style.height = '38px';
+
+
+      new mapboxgl.Marker(element)
         .setLngLat([marker.long, marker.lat])
         .addTo(map);
     });
@@ -68,22 +80,27 @@ const initMapbox = () => {
 
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
-      new mapboxgl.Marker()
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${marker.image_url}')`;
+      console.log(element.style.backgroundImage)
+      element.style.backgroundSize = 'cover';
+      element.style.backgroundRepeat = 'no-repeat';
+      element.style.backgroundPosition = 'center';
+      element.style.width = '25px';
+      element.style.height = '38px';
+
+
+      new mapboxgl.Marker(element)
         .setLngLat([marker.long, marker.lat])
         .addTo(map);
-    });
-
+    })
     fitMapToMarkers(map, markers);
     const start = [markers[0].long, markers[0].lat];
+    console.log(start);
     const end = [markers[1].long, markers[1].lat];
-    mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0aGplb25nIiwiYSI6ImNrczI3djFjbjIxOXMycXM3aXpwZXJyZWEifQ.1w9UEC3UTR9FhyYOrTQwGg'
-
-    // map.addControl(
-    //   new MapboxDirections({
-    //     accessToken: mapboxgl.accessToken
-    //   }),
-    //   'top-left'
-    //   );
+    console.log(end);
+    mapboxgl.accessToken = mapElement.dataset.mapboxApiKey
 
     async function getRoute(transportMethod) {
       // make a directions request using cycling profile
@@ -142,27 +159,7 @@ const initMapbox = () => {
       }
       instructions.innerHTML = `<div><p style="position: revert !important;"><strong>Trip duration: ${Math.floor(
         data.duration / 60
-      )} min </strong></p><div class="minutes">${Math.floor(
-        data.duration / 60
-      )} min</div><ol class="list-instructions">${tripInstructions}</ol></div>`;
-
-      const field = {journey: { distance: distance, duration: duration, transportation: transportMethod } };
-      const itinerary = document.querySelector('.itinerary-id');
-      if (itinerary) {
-        const id_itinerary = itinerary.id;
-        fetch(`/itineraries/${id_itinerary}/journeys`, {
-          method: 'POST', // or 'PUT'
-          headers: { 'Accept': "application/json", 'X-CSRF-Token': csrfToken(), 'Content-Type': 'application/json'},
-          body: JSON.stringify(field),
-        })
-        .then(response => response.json())
-        .then(field => {
-          console.log('Success:', field);
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-      }
+      )} min </strong></p><ol>${tripInstructions}</ol></div>`;
     }
     map.on('load', () => {
       // make an initial directions request that
@@ -220,18 +217,13 @@ const initMapbox = () => {
           'circle-color': '#000000'
         }
       });
-      // const transportMethods = ['cycling', 'walking', 'driving'];
 
-      // transportMethods.forEach(method => {
-      //   getRoute(method);
-      // });
       const journeyWrapper = document.querySelector('.journey-show');
       if (journeyWrapper) {
         const transportationMethod = journeyWrapper.dataset.transportationMethod;
         getRoute(transportationMethod);
       }
     });
-
   }
 };
 
