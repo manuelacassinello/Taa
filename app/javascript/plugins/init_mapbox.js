@@ -160,24 +160,6 @@ const initMapbox = () => {
       instructions.innerHTML = `<div><p style="position: revert !important;"><strong>Trip duration: ${Math.floor(
         data.duration / 60
       )} min </strong></p><ol>${tripInstructions}</ol></div>`;
-
-      const field = {journey: { distance: distance, duration: duration, transportation: transportMethod } };
-      const itinerary = document.querySelector('.itinerary-id');
-      if (itinerary) {
-        const id_itinerary = itinerary.id;
-        fetch(`/itineraries/${id_itinerary}/journeys`, {
-          method: 'POST', // or 'PUT'
-          headers: { 'Accept': "application/json", 'X-CSRF-Token': csrfToken(), 'Content-Type': 'application/json'},
-          body: JSON.stringify(field),
-        })
-        .then(response => response.json())
-        .then(field => {
-          console.log('Success:', field);
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-      }
     }
     map.on('load', () => {
       // make an initial directions request that

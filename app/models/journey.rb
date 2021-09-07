@@ -1,6 +1,6 @@
 class Journey < ApplicationRecord
   belongs_to :itinerary
-
+  TRANSPORT_METHODS = %w[walking cycling driving]
   def total_emissions
     # get the journey distance in km
     # and times by the value we have for the transport emissions
