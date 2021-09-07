@@ -37,16 +37,18 @@ const initMapbox = () => {
     const markers = JSON.parse(simpleMap.dataset.markers);
 
     markers.forEach((marker) => {
-
       const element = document.createElement('div');
       element.className = 'marker';
       element.style.backgroundImage = `url('${marker.image_url}')`;
-      element.style.backgroundSize = 'contain';
+      console.log(element.style.backgroundImage)
+      element.style.backgroundSize = 'cover';
+      element.style.backgroundRepeat = 'no-repeat';
+      element.style.backgroundPosition = 'center';
       element.style.width = '25px';
-      element.style.height = '25px';
+      element.style.height = '38px';
 
 
-      new mapboxgl.Marker()
+      new mapboxgl.Marker(element)
         .setLngLat([marker.long, marker.lat])
         .addTo(map);
     });
@@ -78,11 +80,21 @@ const initMapbox = () => {
 
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
-      new mapboxgl.Marker()
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${marker.image_url}')`;
+      console.log(element.style.backgroundImage)
+      element.style.backgroundSize = 'cover';
+      element.style.backgroundRepeat = 'no-repeat';
+      element.style.backgroundPosition = 'center';
+      element.style.width = '25px';
+      element.style.height = '38px';
+
+
+      new mapboxgl.Marker(element)
         .setLngLat([marker.long, marker.lat])
         .addTo(map);
-    });
-
+    })
     fitMapToMarkers(map, markers);
     const start = [markers[0].long, markers[0].lat];
     const end = [markers[1].long, markers[1].lat];
