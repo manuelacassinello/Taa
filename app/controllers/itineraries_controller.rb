@@ -27,7 +27,7 @@ class ItinerariesController < ApplicationController
       route = data[:geometry][:coordinates]
       Journey.create distance: distance, itinerary: @itinerary, duration: duration, transportation: transport_method
     end
-    @journeys = @itinerary.journeys
+    @journeys = @itinerary.journeys.sort_by { |journey| journey.total_emissions }
   end
 
   def new

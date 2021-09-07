@@ -29,10 +29,10 @@
         <% @journeys.each do |journey| %>
           <%= link_to journey_path(journey), class: "w-100" do %>
             <div class="card-journey w-100">
-                <% if journey.transportation == "walking"%>
-                  <%= image_tag'walking.png', class:"image-walking"%>
-                <% elsif journey.transportation == "cycling"%>
+                <% if journey.transportation == "cycling"%>
                   <%= image_tag'cycling.png', class:"image-cycling"%>
+                <% elsif journey.transportation == "walking"%>
+                  <%= image_tag'walking.png', class:"image-walking"%>
                 <% elsif journey.transportation == "driving" %>
                   <%= image_tag'driving.png', class:"image-driving"%>
                 <% end %>
