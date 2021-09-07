@@ -1,5 +1,5 @@
-<div class="journey-show">
-  <h1>Things to know about your journey</h1>
+<div class="journey-show" data-transportation-method="<%= @journey.transportation %>">
+  <h1><%= @journey.transportation.capitalize %> | Things to know about your journey</h1>
 
   <div class="journey-info">
     <div class="destination-1">

@@ -18,7 +18,6 @@ const initMapbox = () => {
       container: 'simple',
       style: 'mapbox://styles/manuelacass/ckt8lvgp552uj17mwmogl2x47'
     });
-    console.log(map);
 
     const fitMapToMarkers = (map, markers) => {
       const bounds = new mapboxgl.LngLatBounds();
@@ -27,7 +26,6 @@ const initMapbox = () => {
     };
 
     const markers = JSON.parse(simpleMap.dataset.markers);
-    console.log(typeof (markers))
     markers.forEach((marker) => {
       new mapboxgl.Marker()
         .setLngLat([marker.long, marker.lat])
@@ -36,9 +34,7 @@ const initMapbox = () => {
 
     fitMapToMarkers(map, markers);
     const start = [markers[0].long, markers[0].lat];
-    console.log(markers[0])
     const end = [markers[1].long, markers[1].lat];
-    console.log(end)
     mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0aGplb25nIiwiYSI6ImNrczI3djFjbjIxOXMycXM3aXpwZXJyZWEifQ.1w9UEC3UTR9FhyYOrTQwGg'
   }
 
@@ -62,7 +58,6 @@ const initMapbox = () => {
 
 
     const markers = JSON.parse(mapElement.dataset.markers);
-    console.log(typeof(markers))
     markers.forEach((marker) => {
       new mapboxgl.Marker()
         .setLngLat([marker.long, marker.lat])
@@ -71,9 +66,7 @@ const initMapbox = () => {
 
     fitMapToMarkers(map, markers);
     const start = [markers[0].long, markers[0].lat];
-    console.log(markers[0])
     const end = [markers[1].long, markers[1].lat];
-    console.log(end)
     mapboxgl.accessToken = 'pk.eyJ1IjoiY2F0aGplb25nIiwiYSI6ImNrczI3djFjbjIxOXMycXM3aXpwZXJyZWEifQ.1w9UEC3UTR9FhyYOrTQwGg'
 
     // map.addControl(
@@ -95,7 +88,6 @@ const initMapbox = () => {
       const json = await query.json();
       const data = json.routes[0];
       const distance = data.distance;
-      console.log(distance);
       const duration = data.duration;
       const route = data.geometry.coordinates;
       const geojson = {
@@ -124,7 +116,7 @@ const initMapbox = () => {
             'line-cap': 'round'
           },
           paint: {
-            'line-color': '#3887be',
+            'line-color': '#000000',
             'line-width': 5,
             'line-opacity': 0.75
           }
@@ -133,29 +125,33 @@ const initMapbox = () => {
       // add turn instructions here at the end
       const instructions = document.getElementById('instructions');
       const steps = data.legs[0].steps;
+      console.log(data, steps);
 
       let tripInstructions = '';
       for (const step of steps) {
-        tripInstructions += `<li>${step.maneuver.instruction}</li>`;
+        tripInstructions += `<li >${step.maneuver.instruction}</li>`;
       }
-      instructions.innerHTML = `<p><strong>Trip duration: ${Math.floor(
+      instructions.innerHTML = `<div><p style="position: revert !important;"><strong>Trip duration: ${Math.floor(
         data.duration / 60
-      )} min 🚴 </strong></p><ol>${tripInstructions}</ol>`;
+      )} min </strong></p><ol>${tripInstructions}</ol></div>`;
 
       const field = {journey: { distance: distance, duration: duration, transportation: transportMethod } };
-
-      fetch(`/itineraries/${id_itinerary}/journeys/${id_journey}`, {
-        method: 'POST', // or 'PUT'
-        headers: { 'Accept': "application/json", 'X-CSRF-Token': csrfToken(), 'Content-Type': 'application/json'},
-        body: JSON.stringify(field),
-      })
-      .then(response => response.json())
-      .then(field => {
-        console.log('Success:', field);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+      const itinerary = document.querySelector('.itinerary-id');
+      if (itinerary) {
+        const id_itinerary = itinerary.id;
+        fetch(`/itineraries/${id_itinerary}/journeys`, {
+          method: 'POST', // or 'PUT'
+          headers: { 'Accept': "application/json", 'X-CSRF-Token': csrfToken(), 'Content-Type': 'application/json'},
+          body: JSON.stringify(field),
+        })
+        .then(response => response.json())
+        .then(field => {
+          console.log('Success:', field);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+      }
     }
     map.on('load', () => {
       // make an initial directions request that
@@ -184,8 +180,8 @@ const initMapbox = () => {
           }
         },
         paint: {
-          'circle-radius': 10,
-          'circle-color': '#3887be'
+          'circle-radius': 1,
+          'circle-color': '#000000'
         }
       });
       // this is where the code from the next step will go
@@ -209,15 +205,20 @@ const initMapbox = () => {
           }
         },
         paint: {
-          'circle-radius': 10,
-          'circle-color': '#3887be'
+          'circle-radius': 1,
+          'circle-color': '#000000'
         }
       });
-      const transportMethods = ['cycling', 'walking', 'driving'];
+      // const transportMethods = ['cycling', 'walking', 'driving'];
 
-      transportMethods.forEach(method => {
-        getRoute(method);
-      });
+      // transportMethods.forEach(method => {
+      //   getRoute(method);
+      // });
+      const journeyWrapper = document.querySelector('.journey-show');
+      if (journeyWrapper) {
+        const transportationMethod = journeyWrapper.dataset.transportationMethod;
+        getRoute(transportationMethod);
+      }
     });
 
   }
