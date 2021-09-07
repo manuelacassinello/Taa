@@ -5,7 +5,7 @@
         <div class="form-content">
           <%= simple_form_for(@itinerary) do |f| %>
             <%= f.input :origin_destination, label: false, placeholder:"Origin destination", input_html: {class:"inside-form address-input"} %>
-            <%= f.input :final_destination, label: false, placeholder:"Final destination", input_html: {class:"inside-form address-input"}  %>
+            <%= f.input :final_destination, label: false, placeholder:"Final destination", input_html: {class:"inside-form address-input", value: params.dig(:search, :final) } %>
             <%= f.submit input_html:{class:"button-form"} %>
           <% end %>
         </div>

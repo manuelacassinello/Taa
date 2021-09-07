@@ -34,7 +34,7 @@
     border-radius: 29px;
     box-sizing: border-box;
     margin: 30px auto 10px;
-    overflow: hidden;
+    // overflow: hidden;
     padding: 20px;
     height: 80px;
 }
@@ -184,4 +184,12 @@ p {
 svg{
   position: absolute;
   top: 5%;
+}
+
+
+
+.search_final {
+  .ap-input-icon svg{
+    fill: #FBFBFB !important;
+  }
 }
