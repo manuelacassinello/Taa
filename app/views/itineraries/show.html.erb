@@ -1,13 +1,11 @@
 <div class="itinerary-show">
   <div class="destination">
+     <%= image_tag'deco.png', class:"decos"%>
     <div id="origin">
-      <%= image_tag'illu2.png', class:"image-side"%>
-      <h5> Origin: </h5>
-      <h4> <%=  @itinerary.origin_destination %></h4>
+      <h4><%= @itinerary.origin_destination.split(",").first %></h4>
     </div>
     <div id="final">
-      <h5> Destination: </h5>
-      <h4> <%=  @itinerary.final_destination %></h4>
+      <h4><%= @itinerary.final_destination.split(",").first %></h4>
     </div>
   </div>
 
@@ -17,9 +15,8 @@
 
 
   <div class="map-content">
-
     <div id="simple"
-      style="width: 100%; height: 296px;"
+      style="width: 100%; height: 280px; border-radius: 14px; align-items: center;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       data-url = "<%= @url %>"
@@ -27,11 +24,26 @@
   </div>
 
   <div class="wrapper">
-    <div class="cards-wrap">
-      <div class="row">
+    <div class="cards-wrap"  style : {width: 260px}, {height: 300px}, >
+      <div class="row m-0 w-100">
         <% @journeys.each do |journey| %>
-          <%= link_to journey_path(journey) do %>
-            <div class="card-journey"> <strong><%= journey.transportation.upcase %></strong>: <%= (journey.distance/1000).round(1) %> km | <%= (journey.duration/60).round(0) %> minutes</div>
+          <%= link_to journey_path(journey), class: "w-100" do %>
+            <div class="card-journey w-100">
+                <% if journey.transportation == "walking"%>
+                  <%= image_tag'walking.png', class:"image-walking"%>
+                <% elsif journey.transportation == "cycling"%>
+                  <%= image_tag'cycling.png', class:"image-cycling"%>
+                <% elsif journey.transportation == "driving" %>
+                  <%= image_tag'driving.png', class:"image-driving"%>
+                <% end %>
+                 <div class="km">
+                <h6 class= "m-0"><%= (journey.distance/1000).round(1) %> km</h6>
+                </div>
+                <div class="time">
+                 <h6 class="m-0 text-center"><%= (journey.duration/60).round(0) %></h6>
+                 <span>mins</span>
+                </div>
+            </div>
           <% end %>
         <% end %>
       </div>

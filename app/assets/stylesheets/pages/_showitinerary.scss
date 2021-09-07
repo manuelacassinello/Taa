@@ -10,13 +10,13 @@
 .destination {
   padding: 22px;
   border-radius: 14px;
-  color: $white;
+  color: $black;
   box-shadow: 0 0 80px rgba($green, .1);
   box-sizing: border-box;
   z-index: 15;
   position: relative;
-  width: 340px;
-  background-color: $black;
+  height: 100px;
+  background-color: $light-gray;
   margin-bottom: 10px;
   font-family: "Roboto";
 }
@@ -31,13 +31,106 @@ h4{
   font-size: 14px;
   font-family: "Roboto";
   padding-left:"50px";
+  font-weight: bolder;
 }
-.image-side{
-    vertical-align: middle;
-    border-style: none;
-    /* top: 10%; */
-    bottom: 15%;
-    width: 34px;
-    height: 120px;
-    position: absolute;
+// .image-side{
+//     vertical-align: middle;
+//     border-style: none;
+//     /* top: 10%; */
+//     bottom: 15%;
+//     width: 34px;
+//     height: 120px;
+//     position: absolute;
+// }
+
+.map-content{
+    border-radius: 14px;
+    align-content: center;
+
+}
+
+.itinerary-show {
+    padding: 3px 32px;
+    /* padding-right: 0px; */
+
+}
+
+.cards-wrap{
+  background-image: linear-gradient(to top, #000000, #289548);
+  padding: 16px;
+  border-radius: 10px;
+  margin-top: 16px;
+}
+
+.card-journey {
+  position: relative;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: 10px 0;
+  color:white;
+  text-decoration: none;
+  border: 1px solid white;
+  border-radius: 10px;
+
+}
+.time{
+  position: absolute;
+  right: 10px;
+  top: 18px;
+  line-height: 9px;
+}
+
+#origin{
+  background-color: white;
+  width: 232px;
+  height: 34px;
+  padding: 8px;
+  border-radius: 25px;
+  line-height: 1.5;
+  display: inline-block;
+  margin: -18px auto 15px;
+  position: absolute;
+  right: 30px;
+  top: 31px;
+}
+
+#final{
+ background-color: white;
+  width: 232px;
+  height: 34px;
+  padding: 8px;
+  border-radius: 25px;
+  line-height: 1.5;
+  display: inline-block;
+  margin: -18px auto 15px;
+  position: absolute;
+  right: 31px;
+  top: 74px;
+
+}
+
+.image-walking{
+  height: 35px;
+}
+.image-cycling{
+  height: 35px;
+}
+.image-driving{
+  height: 35px;
+}
+
+.km{
+  position: absolute;
+    right: 164px;
+    top: 23px;
+    line-height: 9px;
+}
+
+.decos{
+ width: 30px;
+  right: 270px;
+  top: 1px;
+  position: absolute;
 }
