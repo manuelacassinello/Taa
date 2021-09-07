@@ -1,17 +1,18 @@
 <div class="journey-show" data-transportation-method="<%= @journey.transportation %>">
-  <h1><%= @journey.transportation.capitalize %> | Things to know about your journey</h1>
-
   <div class="journey-info">
-    <div class="destination-1">
-      <div id="origin-1">
-        <h3> Origin: </h3>
-        <h4> <%= @journeys %></h4>
-      </div>
-      <div id="final-1">
-        <h3> Destination: </h3>
-        <h4> <%= @journeys %></h4>
-      </div>
+    <div class="destinations">
+     <%= image_tag'deco.png', class:"decos"%>
+    <div id="origin">
+      <h4><%= @itinerary.origin_destination.split(",").first %></h4>
     </div>
+    <div id="final">
+      <h4><%= @itinerary.final_destination.split(",").first %></h4>
+    </div>
+  </div>
+
+  <div class="itinerary-id" id="<%= @itinerary.id %>">
+  </div>
+
 
     <div class="time-price">
 
@@ -36,7 +37,7 @@
 
 
   <div id="map"
-    style="width: 100%; height: 296px;"
+    style="width: 90%; height: 280px; border-radius: 14px; align-items: center;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     data-url = "<%= @url %>"

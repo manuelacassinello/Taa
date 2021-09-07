@@ -142,7 +142,9 @@ const initMapbox = () => {
       }
       instructions.innerHTML = `<div><p style="position: revert !important;"><strong>Trip duration: ${Math.floor(
         data.duration / 60
-      )} min </strong></p><ol>${tripInstructions}</ol></div>`;
+      )} min </strong></p><div class="minutes">${Math.floor(
+        data.duration / 60
+      )} min</div><ol class="list-instructions">${tripInstructions}</ol></div>`;
 
       const field = {journey: { distance: distance, duration: duration, transportation: transportMethod } };
       const itinerary = document.querySelector('.itinerary-id');
