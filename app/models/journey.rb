@@ -7,6 +7,11 @@ class Journey < ApplicationRecord
     @transport = Transport.find_by(name: transportation)
     @transport.emissions * (distance / 1000)
   end
+
+  def points
+    @transport = Transport.find_by(name: transportation)
+    @transport.points
+  end
   # validates :start_time, presence: true
   # validates :end_time, presence: true
   # validates :price, presence: true
