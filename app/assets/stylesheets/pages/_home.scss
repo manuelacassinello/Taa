@@ -174,7 +174,7 @@ p {
   width: 100vw;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding-top: 60px;
   position: fixed;
   top: 0;
   z-index: 100000;
@@ -182,10 +182,12 @@ p {
   animation-direction: alternate;
 }
 
-svg{
-  position: absolute;
-  top: 5%;
-  opacity: 0%;
+.ap-input-icon {
+  svg {
+    position: absolute;
+    top: 5%;
+    opacity: 0%;
+  }
 }
 
 #home-map{
