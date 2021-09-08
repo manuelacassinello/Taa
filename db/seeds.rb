@@ -7,8 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Cleaning Database..."
-Itinerary.destroy_all
+Transport.destroy_all
 Journey.destroy_all
+Itinerary.destroy_all
 User.destroy_all
 
 puts "Creating User..."

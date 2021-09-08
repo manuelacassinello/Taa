@@ -1,10 +1,4 @@
 class User < ApplicationRecord
-  def total_points
-    total = 0
-    journeys = self.journeys.where(selected: true)
-    journeys.each { |journey| total += journey.points }
-    return total
-  end
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -19,4 +13,11 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
   validates :user_name, presence: true, uniqueness: true
+
+  def total_points
+    total = 0
+    journeys = self.journeys.where(selected: true)
+    journeys.each { |journey| total += journey.points }
+    return total
+  end
 end
