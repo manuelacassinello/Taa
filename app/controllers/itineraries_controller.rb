@@ -45,7 +45,6 @@ class ItinerariesController < ApplicationController
     end
   end
 
-
   private
 
   def itinerary_params

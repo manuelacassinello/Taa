@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_03_115231) do
+ActiveRecord::Schema.define(version: 2021_09_08_103258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,14 +30,13 @@ ActiveRecord::Schema.define(version: 2021_09_03_115231) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer "price"
-    t.integer "co2_emissions"
     t.string "transportation"
-    t.integer "points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "itinerary_id"
     t.float "distance"
     t.float "duration"
+    t.boolean "selected"
     t.index ["itinerary_id"], name: "index_journeys_on_itinerary_id"
   end
 
@@ -46,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_115231) do
     t.float "emissions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "points"
   end
 
   create_table "travel_passes", force: :cascade do |t|

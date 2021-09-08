@@ -24,6 +24,8 @@ class JourneysController < ApplicationController
     @markers << origin_destination
     @markers << final_destination
 
+    @journey.selected = true
+	  @journey.save
   end
 
   def create

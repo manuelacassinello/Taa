@@ -41,17 +41,20 @@ Itinerary.create!(
 puts "Creating Transports..."
 Transport.create!(
   name: "cycling",
-  emissions: 21.0
+  emissions: 21.0,
+  points: 30
 )
 
 Transport.create!(
   name: "walking",
-  emissions: 32.7
+  emissions: 32.7,
+  points: 20
 )
 
 Transport.create!(
   name: "driving",
-  emissions: 168.44
+  emissions: 168.44,
+  points: 5
 )
 
 puts 'Finished!'
