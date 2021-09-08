@@ -1,1 +1,16 @@
-<h4> Points: <%=current_user.total_points%> </h4>
+<div class="trips-header">
+  <h1>Your Trips</h1>
+  <h4> Points: <%=current_user.total_points%> </h4>
+</div>
+
+<div class="trips-container">
+  <h2>Past</h2>
+  <div class="flex-container">
+  <% @my_trips.each do |journey| %>
+    <h4>Date: <%= journey.created_at %></h4>
+    <h4>Transportation: <%= journey.transportation %></h4>
+    <h4>CO2 Emissions: <%= journey.total_emissions %></h4>
+    <h4>Points: <%= journey.points %></h4>
+  <% end %>
+  </div>
+</div>
