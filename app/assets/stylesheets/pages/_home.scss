@@ -185,6 +185,7 @@ p {
 svg{
   position: absolute;
   top: 5%;
+  opacity: 0%;
 }
 
 #home-map{
@@ -192,6 +193,13 @@ svg{
 .search_final {
   .ap-input-icon svg{
     fill: #FBFBFB !important;
+
+
   }
 }
+}
+
+.address-input{
+ border-radius: 14px;
+ border-color: white;
 }

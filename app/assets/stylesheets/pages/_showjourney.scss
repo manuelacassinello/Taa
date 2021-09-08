@@ -25,12 +25,13 @@
     width: 163px;
     height: 45px;
     border-radius: 24px;
-    padding: 11px;
-    padding-left: 60px;
+    padding: 8px;
+    padding-left: 58px;
     align-items: center;
     align-content: center;
     margin: auto;
     margin-bottom: 24px;
+    font-size: 18px;
     margin-top: -10px;
 
 }
@@ -76,7 +77,7 @@
     box-sizing: border-box;
     z-index: 15;
     position: relative;
-    height: 100px;
+    height: 68px;
     background-color: #EDECEC;
     margin-bottom: 10px;
     font-family: "Roboto";
@@ -84,4 +85,7 @@
 
 #map{
   padding:22px;
+}
+.mapboxgl-canvas{
+
 }
