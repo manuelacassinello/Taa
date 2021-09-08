@@ -1,16 +1,25 @@
 <div class="trips-header">
-  <h1>Your Trips</h1>
-  <h4> Points: <%=current_user.total_points%> </h4>
+  <h1 class="trips">Your Trips</h1>
+  <h2 class="point-trips"> Total points: <%=current_user.total_points%> </h2>
 </div>
 
-<div class="trips-container">
-  <h2>Past</h2>
-  <div class="flex-container">
+<div class="trips">
   <% @my_trips.each do |journey| %>
-    <h4>Date: <%= journey.created_at %></h4>
-    <h4>Transportation: <%= journey.transportation %></h4>
-    <h4>CO2 Emissions: <%= journey.total_emissions %></h4>
-    <h4>Points: <%= journey.points %></h4>
+    <div class="card-journey w-100">
+      <% if journey.transportation == "cycling"%>
+          <%= image_tag'bici.png', class:"image-cycling"%>
+      <% elsif journey.transportation == "walking"%>
+          <%= image_tag'caminar.png', class:"image-walking"%>
+      <% elsif journey.transportation == "driving" %>
+          <%= image_tag'conducir.png', class:"image-driving"%>
+      <% end %>
+      <div class="km">
+        <h6 class= "m-0"><%= journey.total_emissions.round %>g</h6>
+        <h6 class= "m-0"><%= journey.points %> points</h6>
+      </div>
+      <div class="time">
+        <h6 class="m-0 text-center"><%= journey.created_at.strftime(" %e/%m") %></h6>
+      </div>
+    </div>
   <% end %>
-  </div>
 </div>
