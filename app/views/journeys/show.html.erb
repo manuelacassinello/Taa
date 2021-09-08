@@ -21,16 +21,16 @@
 <div class="itinerary-id" id="<%= @journey.itinerary_id %>">
 <div class="journey-id" id="<%= @journey.id %>">
 
-<div class="map-content">
+<div class="map">
   <%= @url %>
 
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 
-
   <div id="map"
 
     style="width: auto; height: 280px; border-radius: 14px; align-items: center; margin: 0 27.5px;"
+
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     data-url = "<%= @url %>"

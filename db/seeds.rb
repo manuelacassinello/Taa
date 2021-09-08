@@ -7,8 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Cleaning Database..."
-Itinerary.destroy_all
+Transport.destroy_all
 Journey.destroy_all
+Itinerary.destroy_all
 User.destroy_all
 
 puts "Creating User..."
@@ -41,17 +42,20 @@ Itinerary.create!(
 puts "Creating Transports..."
 Transport.create!(
   name: "cycling",
-  emissions: 21.0
+  emissions: 21.0,
+  points: 30
 )
 
 Transport.create!(
   name: "walking",
-  emissions: 32.7
+  emissions: 32.7,
+  points: 20
 )
 
 Transport.create!(
   name: "driving",
-  emissions: 168.44
+  emissions: 168.44,
+  points: 5
 )
 
 puts 'Finished!'

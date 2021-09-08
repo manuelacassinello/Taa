@@ -1,21 +1,25 @@
+#instructions {
+  position: absolute;
+  margin: 20px;
+  width: 25%;
+  top: 415px;
+  bottom: 20%;
+  padding: 20px;
+  background-color: #fff;
+  overflow-y: scroll;
+  font-family: sans-serif;
+}
 
 .itinerary-show {
   padding: 16px;
 }
 
-// .destination {
-//   padding: 22px;
-//   border-radius: 8px;
-//   box-shadow: 0 0 80px rgba($green, .1);
-//   box-sizing: border-box;
-//   z-index: 15;
-//   position: relative;
-//   width: auto;
-//   background-color:white;
-//   margin-bottom: 10px;
-// }
 
 
+.map-content {
+  padding: 4px;
+  background-color: white;
+}
 
 .move-button {
   border-color: rgb(48, 73, 4);
