@@ -31,13 +31,13 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { menuSlide } from "../plugins/menu";
 import { initAutocomplete } from "../plugins/init_autocomplete";
-
+import { getCurrentLocation } from './../plugins/geolocation';
 
 
 
 
 document.addEventListener('turbolinks:load', () => {
-
+  getCurrentLocation();
   const splashImg = document.querySelector(".splash-img");
   if (splashImg) {
     window.setTimeout(function () {

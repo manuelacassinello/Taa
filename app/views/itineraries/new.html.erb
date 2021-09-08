@@ -1,10 +1,11 @@
-<div class="container">
+<div class="container" id="itineraries_new">
   <div id="journey-index" class="row">
     <div class="col-md-6 col-md-offset-1">
       <div class="form">
         <div class="form-content">
           <%= simple_form_for(@itinerary) do |f| %>
-            <%= f.input :origin_destination, label: false, placeholder:"Origin destination", input_html: {class:"inside-form address-input"} %>
+            <%= f.input :origin_destination, label: false, placeholder:"Origin destination", input_html: {class:"inside-form address-input" }, wrapper_html: { class: 'mb-0' } %>
+            <em class="d-block hint-wrapper"><small class="text-muted" id="hint"></small></em>
             <%= f.input :final_destination, label: false, placeholder:"Final destination", input_html: {class:"inside-form address-input", value: params.dig(:search, :final) } %>
             <%= f.submit input_html:{class:"button-form"} %>
           <% end %>
