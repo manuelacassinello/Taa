@@ -14,16 +14,7 @@
   </div>
 
 
-    <div class="time-price">
-
-    </div>
-
-    <%# <div class="emission-points"> %>
-      <%# <p>You will be travelling by <%= @journey.transportation %>
-      <%# and the carbon emission for this journey is <%= @journey.total_emissions %>
-      <%# g CO2/km.</p> %>
-      <%# <p>You have gained 100 TAA. points!</p>
-    </div> %>
+    <div class="time-price"> </div>
   </div>
 </div>
 
@@ -38,7 +29,9 @@
 
 
   <div id="map"
-    style="width: 90%; height: 280px; border-radius: 14px; align-items: center;"
+
+    style="width: auto; height: 280px; border-radius: 14px; align-items: center; position: sticky;
+    top: 20px; margin: 0 27.5px"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     data-url = "<%= @url %>"
