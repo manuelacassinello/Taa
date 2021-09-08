@@ -12,6 +12,7 @@
   padding: 16px;
 }
 
+
 #instructions p{
  display:none;
 }
@@ -20,19 +21,22 @@
 //   list-style-image: url(bullet.png) ;
 // }
 .minutes{
- background: black;
-    color: white;
-    width: 163px;
-    height: 45px;
-    border-radius: 24px;
-    padding: 8px;
-    padding-left: 58px;
+
+    color: black;
+    // width: 163px;
+    // height: 45px;
+    // border-radius: 24px;
+    // padding: 8px;
+    // padding-left: 58px;
+    // align-items: center;
+    // align-content: center;
+    // margin: auto;
+    // margin-bottom: 24px;
+    // font-size: 18px;
+    // margin-top: -10px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    align-content: center;
-    margin: auto;
-    margin-bottom: 24px;
-    font-size: 18px;
-    margin-top: -10px;
 
 }
 
@@ -46,13 +50,15 @@
 // #instructions li {
 //   font-family: "Roboto";
 
-// }
-
+//
 
 .list-instructions {
+    overflow: scroll;
+    height: 246px;
+    margin-top: 13px;
   li {
     list-style-type: none;
-    width: 282px;
+
     display: flex;
     background: $light-gray;
     border-radius: 12px;
