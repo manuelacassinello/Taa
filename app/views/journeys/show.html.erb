@@ -3,10 +3,10 @@
     <div class="destinations">
      <%= image_tag'deco.png', class:"decos"%>
     <div id="origin">
-      <h4><%= @itinerary.origin_destination.split(",").first %></h4>
+      <h4>Origin: <%= @itinerary.origin_destination.split(",").first %></h4>
     </div>
     <div id="final">
-      <h4><%= @itinerary.final_destination.split(",").first %></h4>
+      <h4>Destination: <%= @itinerary.final_destination.split(",").first %></h4>
     </div>
   </div>
 
@@ -32,6 +32,7 @@
 
 <div class="map-content">
   <%= @url %>
+
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 
