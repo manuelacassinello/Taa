@@ -14,16 +14,7 @@
   </div>
 
 
-    <div class="time-price">
-
-    </div>
-
-    <%# <div class="emission-points"> %>
-      <%# <p>You will be travelling by <%= @journey.transportation %>
-      <%# and the carbon emission for this journey is <%= @journey.total_emissions %>
-      <%# g CO2/km.</p> %>
-      <%# <p>You have gained 100 TAA. points!</p>
-    </div> %>
+    <div class="time-price"> </div>
   </div>
 </div>
 
@@ -36,10 +27,10 @@
   <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css" type="text/css">
 
+  <div id="map"
 
-  <div id="map" class="map-last"
+    style="width: auto; height: 280px; border-radius: 14px; align-items: center; margin: 0 27.5px;"
 
-    style="width: 85%; height: 280px; border-radius: 14px; align-items: center;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     data-url = "<%= @url %>"

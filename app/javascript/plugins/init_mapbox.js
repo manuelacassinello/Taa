@@ -159,9 +159,9 @@ const initMapbox = () => {
       }
       instructions.innerHTML = `<div><p style="position: revert !important;"><strong>Trip duration: ${Math.floor(
         data.duration / 60
-      )} min </strong></p><div class="minutes">${Math.floor(
+      )} min </strong></p><div class="minutes">Total time: &nbsp <strong> ${Math.floor(
         data.duration / 60
-      )} min</div><ol class="list-instructions">${tripInstructions}</ol></div>`;
+      )}min</strong> </div><ol class="list-instructions">${tripInstructions}</ol></div>`;
       }
     map.on('load', () => {
       // make an initial directions request that
