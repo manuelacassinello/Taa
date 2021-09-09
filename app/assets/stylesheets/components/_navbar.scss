@@ -58,6 +58,7 @@ body {
 
 .offscreen-nav {
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 0;
   overflow: hidden;
   background-color: $white;

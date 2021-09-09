@@ -28,9 +28,9 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { initMapbox } from '../plugins/init_mapbox';
-import { menuSlide } from "../plugins/menu";
-import { initAutocomplete } from "../plugins/init_autocomplete";
+import { initMapbox } from './../plugins/init_mapbox';
+import { menuSlide } from "./../plugins/menu";
+import { initAutocomplete } from "./../plugins/init_autocomplete";
 import { getCurrentLocation } from './../plugins/geolocation';
 
 
@@ -38,15 +38,15 @@ import { getCurrentLocation } from './../plugins/geolocation';
 
 document.addEventListener('turbolinks:load', () => {
   getCurrentLocation();
-  const splashImg = document.querySelector(".splash-img");
-  if (splashImg) {
-    window.setTimeout(function () {
-      splashImg.style.opacity = 0;
-    }, 2000);
-    window.setTimeout(function () {
-      splashImg.classList.add("d-none");
-    }, 3000);
-  }
+  // const splashImg = document.querySelector(".splash-img");
+  // if (splashImg) {
+  //   setTimeout(() => {
+  //     splashImg.style.opacity = 0;
+  //   }, 2000);
+  //   setTimeout(() => {
+  //     splashImg.classList.add("d-none");
+  //   }, 3000);
+  // }
 
 
 
