@@ -1,6 +1,9 @@
 <div class="trips-header">
   <h2 class="point-trips"> Total points: <%=current_user.total_points%></h2>
-  <h2 class="eco-trips"> Eco-rating: <%= image_tag'leaf.png', class:"leaf-png"%></h2>
+  <h4 class="hojas"> Eco-Rating:<%current_user.eco_rating.times do%>
+    <%= image_tag'leaf.png', class:"leafit"%>
+  <% end %>
+  </h4>
 </div>
 
 <div class="trips">
