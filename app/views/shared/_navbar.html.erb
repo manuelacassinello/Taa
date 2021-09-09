@@ -24,21 +24,22 @@
           <div class="user-profile">
               <div class="container mt-5 d-flex justify-content-center my-4 mx-0">
                   <div class="d-flex align-items-center">
-                  <img class="avatar-large" alt="avatar-large" src="https://res.cloudinary.com/manuelacass/image/upload/v1630588797/HPng_wzgl7n.png" />
+                  <img class="avatar-large" alt="avatar-large" src="https://res.cloudinary.com/manuelacass/image/upload/v1631176103/iconb_swuwyb.png" />
                       <div class="name ml-3 w-100">
-                        <h4 class="mb-0 mt-0">Monsieur Potter</h4><span>hp@icloud.com</span>
+                        <h4 class="mb-0 mt-0">Vivian Frost</h4><span>vf@icloud.com</span>
                         <br>
-                        <h4> <%=current_user.eco_rating %> </h4>
+                        <h4> <%current_user.eco_rating.times do%>
+                        <%= image_tag'leaf.png', class:"leafit"%>
+                        <% end %>
+                        </h4>
                       </div>
                   </div>
                 </div>
-              <div class="container my-3">
+              <div class="container9 my-3">
                   <h5 class="tripsi my-3"><%= link_to 'My Trips', my_trips_path %></h5>
                   <h5 class="wallet my-3"><%= link_to 'Taa Pass', travelpass_path %></h5>
                   <h5 class="my-account my-3"><%= link_to 'My Tree', my_tree_path %></h5>
                   <h5 class="help my-3"><%= link_to 'Help'%></h5>
-                  <br>
-                  <br>
                   <br>
                   <br>
                   <br>
