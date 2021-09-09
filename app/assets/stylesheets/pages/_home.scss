@@ -225,6 +225,15 @@ p {
     box-shadow: 0 0 0 0.2rem rgba(40, 149, 72, 0.25) !important;
   }
 }
+#search_final:focus {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.form-control:focus {
+  border-color: $green !important;
+  box-shadow: 0 0 0 0.2rem rgba(40, 149, 72, 0.25) !important;
+}
 
 .address-input{
  border-radius: 14px;
