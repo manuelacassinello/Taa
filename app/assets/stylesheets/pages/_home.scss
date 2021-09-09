@@ -30,10 +30,9 @@
     z-index: 15;
     position: relative;
     background: $light-gray;
-    width: 320px;
     border-radius: 29px;
     box-sizing: border-box;
-    margin: 17px auto 10px;
+    margin: 0 32px;
     // overflow: hidden;
     padding: 20px;
     height: 80px;
@@ -91,7 +90,7 @@ p {
 {
   position: absolute;
   top: 37%;
-  right: 15%;
+  right: 10%;
   bottom: -2rem;
   width: 14px;
   height: 20px;
@@ -207,20 +206,37 @@ p {
 
 #home-map{
   border-radius: 14px;
-.search_final {
-  .ap-input-icon svg{
-    fill: #FBFBFB !important;
+  .search_final {
+    .ap-input-icon svg{
+      fill: #FBFBFB !important;
 
 
+    }
   }
 }
+
+.address-input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FBFBFB;
+  border-radius: 14px;
+  &:focus-within {
+    border-color: $green !important;
+    box-shadow: 0 0 0 0.2rem rgba(40, 149, 72, 0.25) !important;
+  }
 }
 
 .address-input{
  border-radius: 14px;
- border-color: white;
+ border: 0;
  &:focus {
-   border-color: $green !important;
-   box-shadow: 0 0 0 0.2rem rgba(40, 149, 72, 0.25) !important;
+   border-color: none !important;
+   box-shadow: none !important;
  }
+}
+
+.mapboxgl-canvas {
+  border-radius: 14px;
+  width: 100% !important;
 }

@@ -2,6 +2,7 @@ const itineraryNew = document.querySelector('#itinerary_origin_destination');
 const hint = document.querySelector('#hint');
 
 const getCurrentLocation = () => {
+  console.log('fetching')
   if (navigator.pemissions) {
     navigator.permissions.query({ name: 'geolocation' })
       .then((event) => {

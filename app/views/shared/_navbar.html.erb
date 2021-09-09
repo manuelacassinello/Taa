@@ -13,12 +13,12 @@
       <div class="two"></div>
       <div class="three"></div>
     </div>
-    <nav class="offscreen-nav ">
-      <ul role="navigation" class="hidden">
+    <nav class="offscreen-nav">
+      <ul role="navigation" class="hidden w-100">
         <% unless user_signed_in?%>
-          <div class="buttons-nav">
-            <ul class="btn btn-dark my-2"> <a href="/users/sign_in">Log In</a></ul>
-            <ul class="btn btn-dark my-2"><a href="/users/sign_up">Sign Up</a></ul>
+          <div class="buttons-nav d-flex flex-column h-100 align-items-center justify-content-center">
+            <button class="btn btn-dark p-0 d-flex align-items-center justify-content-center my-2"> <a href="/users/sign_in">Log In</a></button>
+            <button class="btn btn-dark p-0 d-flex align-items-center justify-content-center my-2"><a href="/users/sign_up">Sign Up</a></button>
           </div>
         <% else %>
           <div class="user-profile">
@@ -35,30 +35,18 @@
                       </div>
                   </div>
                 </div>
-              <div class="container9 my-3">
-                  <h5 class="tripsi my-3"><%= link_to 'My Trips', my_trips_path %></h5>
-                  <h5 class="wallet my-3"><%= link_to 'Taa Pass', travelpass_path %></h5>
-                  <h5 class="my-account my-3"><%= link_to 'My Tree', my_tree_path %></h5>
-                  <h5 class="help my-3"><%= link_to 'Help'%></h5>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <h5 class="legal">© V4.667.00987</h5>
-                  <h5 class="developed">Developed by Taa.inc</h5>
+              <div class="container my-3 d-flex flex-column flex-grow-1">
+                  <div class="flex-grow-1">
+                    <h5 class="tripsi my-3"><%= link_to 'My Trips', my_trips_path %></h5>
+                    <h5 class="wallet my-3"><%= link_to 'Taa Pass', travelpass_path%></h5>
+                    <h5 class="my-account my-3"><%= link_to 'My Tree', my_tree_path %></h5>
+                    <h5 class="help my-3"><%= link_to 'Help' %></h5>
+                    <h5 class="help my-3"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></h5>
+                  </div>
+                  <div>
+                    <h5 class="legal">© V4.667.00987</h5>
+                    <h5 class="developed">Developed by Taa.inc</h5>
+                  </div>
               </div>
           </div>
 

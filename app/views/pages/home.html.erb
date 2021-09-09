@@ -4,18 +4,20 @@
 
 <%= image_tag'logo4.png', class:"image-top"%>
 <div class="home-container">
-   <div class="locat p-0">
-     <%= simple_form_for :search, url: new_itinerary_path, method: :get do |f| %>
-      <%= f.input :final, label: false, placeholder:"Where to now?", input_html: {class: 'address-input'} %>
-      <%= f.button :button do %>
-        <div class="arrow bounce"></div>
-      <% end %>
+   <div class="w-100">
+      <%= simple_form_for :search, url: new_itinerary_path, html: { class: 'w-100' }, method: :get do |f| %>
+        <div class="address-input-wrapper">
+          <%= f.input :final, label: false, placeholder:"Where to now?", input_html: {class: 'address-input'}, wrapper_html: { class: 'mb-0 w-100' } %>
+          <%= f.button :button, class: 'w-25' do %>
+            <div class="arrow bounce"></div>
+          <% end %>
+        </div>
     <% end %>
    </div>
 </div>
 
 <div class="home-map-container">
   <div id="home-map"
-      style="width: 100%; height: 440px"
+      style="width: 100%; height: 420px; border-radius: 14px;"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
