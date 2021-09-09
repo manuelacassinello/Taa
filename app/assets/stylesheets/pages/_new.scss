@@ -13,8 +13,12 @@
   // height: 190px;
 }
 
-.form-content {
+.form-control {
   // margin: 0 0 20px;
+  &:focus-within {
+    border-color: $green !important;
+    box-shadow: 0 0 0 0.2rem rgba(40, 149, 72, 0.25) !important;
+  }
 }
 
 .form-inputs {
