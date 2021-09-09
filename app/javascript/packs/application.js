@@ -37,6 +37,8 @@ import { getCurrentLocation } from './../plugins/geolocation';
 
 
 document.addEventListener('turbolinks:load', () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
   getCurrentLocation();
   // const splashImg = document.querySelector(".splash-img");
   // if (splashImg) {
@@ -48,7 +50,11 @@ document.addEventListener('turbolinks:load', () => {
   //   }, 3000);
   // }
 
-
+  window.addEventListener('resize', () => {
+    // We execute the same script as before
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  });
 
   menuSlide();
   initAutocomplete();

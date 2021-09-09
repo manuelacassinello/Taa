@@ -13,7 +13,7 @@
       <div class="two"></div>
       <div class="three"></div>
     </div>
-    <nav class="offscreen-nav ">
+    <nav class="offscreen-nav">
       <ul role="navigation" class="hidden">
         <% unless user_signed_in?%>
           <div class="buttons-nav">
@@ -32,32 +32,17 @@
                       </div>
                   </div>
                 </div>
-              <div class="container my-3">
-                  <h5 class="tripsi my-3"><%= link_to 'My Trips', my_trips_path %></h5>
-                  <h5 class="wallet my-3"><%= link_to 'Taa Pass', travelpass_path%></h5>
-                  <h5 class="my-account my-3"><%= link_to 'My Account'%></h5>
-                  <h5 class="help my-3"><%= link_to 'Help'%></h5>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <h5 class="legal">© V4.667.00987</h5>
-                  <h5 class="developed">Developed by Taa.inc</h5>
+              <div class="container my-3 d-flex flex-column flex-grow-1">
+                  <div class="flex-grow-1">
+                    <h5 class="tripsi my-3"><%= link_to 'My Trips', my_trips_path %></h5>
+                    <h5 class="wallet my-3"><%= link_to 'Taa Pass', travelpass_path%></h5>
+                    <h5 class="my-account my-3"><%= link_to 'My Account'%></h5>
+                    <h5 class="help my-3"><%= link_to 'Help'%></h5>
+                  </div>
+                  <div>
+                    <h5 class="legal">© V4.667.00987</h5>
+                    <h5 class="developed">Developed by Taa.inc</h5>
+                  </div>
               </div>
           </div>
 
