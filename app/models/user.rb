@@ -25,6 +25,6 @@ class User < ApplicationRecord
     possible_points = journeys.size * 30
     current_points = total_points.to_f
     rating = current_points / possible_points
-    rating * 5
+    (rating * 5).round
   end
 end
