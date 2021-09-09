@@ -7,7 +7,7 @@
             <%= f.input :origin_destination, label: false, placeholder:"Origin destination", input_html: {class:"inside-form address-input" }, wrapper_html: { class: 'mb-0' } %>
             <em class="d-block hint-wrapper"><small class="text-muted" id="hint"></small></em>
             <%= f.input :final_destination, label: false, placeholder:"Final destination", input_html: {class:"inside-form address-input", value: params.dig(:search, :final) } %>
-            <%= f.submit input_html:{class:"button-form"} %>
+            <%= f.submit class:"button-form" %>
           <% end %>
         </div>
       </div>
