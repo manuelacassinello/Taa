@@ -28,7 +28,10 @@
                       <div class="name ml-3 w-100">
                         <h4 class="mb-0 mt-0">Vivian Frost</h4><span>vf@icloud.com</span>
                         <br>
-                        <h4> Points: <%=current_user.eco_rating%> </h4>
+                        <h4> <%current_user.eco_rating.times do%>
+                        <%= image_tag'leaf.png', class:"leafit"%>
+                        <% end %>
+                        </h4>
                       </div>
                   </div>
                 </div>
