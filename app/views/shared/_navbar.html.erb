@@ -14,21 +14,21 @@
       <div class="three"></div>
     </div>
     <nav class="offscreen-nav">
-      <ul role="navigation" class="hidden">
+      <ul role="navigation" class="hidden w-100">
         <% unless user_signed_in?%>
-          <div class="buttons-nav">
-            <ul class="btn btn-dark my-2"> <a href="/users/sign_in">Log In</a></ul>
-            <ul class="btn btn-dark my-2"><a href="/users/sign_up">Sign Up</a></ul>
+          <div class="buttons-nav d-flex flex-column h-100 align-items-center justify-content-center">
+            <button class="btn btn-dark p-0 d-flex align-items-center justify-content-center my-2"> <a href="/users/sign_in">Log In</a></button>
+            <button class="btn btn-dark p-0 d-flex align-items-center justify-content-center my-2"><a href="/users/sign_up">Sign Up</a></button>
           </div>
         <% else %>
           <div class="user-profile">
               <div class="container mt-5 d-flex justify-content-center my-4 mx-0">
                   <div class="d-flex align-items-center">
-                  <img class="avatar-large" alt="avatar-large" src="https://res.cloudinary.com/manuelacass/image/upload/v1630588797/HPng_wzgl7n.png" />
+                  <img class="avatar-large" alt="avatar-large" src="https://res.cloudinary.com/manuelacass/image/upload/v1631176103/iconb_swuwyb.png" />
                       <div class="name ml-3 w-100">
-                        <h4 class="mb-0 mt-0">Monsieur Potter</h4><span>hp@icloud.com</span>
+                        <h4 class="mb-0 mt-0">Vivian Frost</h4><span>vf@icloud.com</span>
                         <br>
-                        <h4> Points: <%=current_user.total_points%> </h4>
+                        <h4> Points: <%=current_user.eco_rating%> </h4>
                       </div>
                   </div>
                 </div>
@@ -36,8 +36,9 @@
                   <div class="flex-grow-1">
                     <h5 class="tripsi my-3"><%= link_to 'My Trips', my_trips_path %></h5>
                     <h5 class="wallet my-3"><%= link_to 'Taa Pass', travelpass_path%></h5>
-                    <h5 class="my-account my-3"><%= link_to 'My Account'%></h5>
-                    <h5 class="help my-3"><%= link_to 'Help'%></h5>
+                    <h5 class="my-account my-3"><%= link_to 'My Account' %></h5>
+                    <h5 class="help my-3"><%= link_to 'Help' %></h5>
+                    <h5 class="help my-3"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></h5>
                   </div>
                   <div>
                     <h5 class="legal">© V4.667.00987</h5>

@@ -1,15 +1,17 @@
 .trips{
    text-align: center;
     font-size: 26px;
-    margin-top: 51px;
-    font-family: "Roboto";
-    font-weight: bolder;
+    margin-top: 35px;
+    font-family: "Helvetica Neue";
+    font-weight: Light;
 }
 
 .point-trips{
-  font-size: 16px;
+  font-family: "Helvetica";
+  font-weight: Light;
+  font-size: 23px;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 27px;
 }
 
 .trips-container{
@@ -18,28 +20,40 @@
     margin-top: 52px;
 }
 
-.card-journey {
+.card-trip {
   position: relative;
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
-
-  margin: 10px 0;
-  color:white;
+  margin: 10px 30px;
+  color:$green;
   text-decoration: none;
-  border: 1px solid white;
+  border: 1px solid $green;
   border-radius: 10px;
 
 }
-.time{
+.time-trip{
   position: absolute;
-  right: 10px;
-  top: 18px;
+  right: 25px;
+  top: 32px;
   line-height: 9px;
 }
-.km{
-  position: absolute;
-    right: 164px;
-    top: 23px;
-    line-height: 9px;
+.km-trip{
+ position: absolute;
+ right: 154px;
+ top: 23px;
+ line-height: 9px;
+}
+
+.image-cycling{
+  height: 50px;
+}
+
+.leaf-png{
+  width: 16px;
+}
+.eco-trips{
+font-size: 17px;
+    margin: auto;
+    text-align: center;
 }
