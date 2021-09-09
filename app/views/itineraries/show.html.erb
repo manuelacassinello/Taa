@@ -36,8 +36,16 @@
                 <% elsif journey.transportation == "driving" %>
                   <%= image_tag'driving.png', class:"image-driving"%>
                 <% end %>
-                 <div class="km">
-                <h6 class= "m-0"><%= (journey.distance/1000).round(1) %> km</h6>
+                <div class="km">
+                  <h6 class= "m-0"><%= (journey.distance/1000).round(1) %> km</h6>
+                  <div class="whiteleaves">
+                    <% if journey.transportation == "cycling"%>
+                      <%= image_tag'whiteleaf.png', class:"whiteleaf"%>
+                      <%= image_tag'whiteleaf.png', class:"whiteleaf"%>
+                    <% elsif journey.transportation == "walking"%>
+                      <%= image_tag'whiteleaf.png', class:"whiteleaf"%>
+                    <% end %>
+                  </div>
                 </div>
                 <div class="time">
                  <h6 class="m-0 text-center"><%= (journey.duration/60).round(0) %></h6>

@@ -69,7 +69,7 @@
   }
 
   li:before {
-    content: url(arrow.svg) ;
+    content: asset_url("arrow.svg");
   }
 }
 

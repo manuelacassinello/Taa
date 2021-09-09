@@ -25,5 +25,6 @@
 }
 
 .tree-wrapper {
-  height: 70vh;
+  height: calc(100% - 81.2px);
+  align-items: flex-end;
 }
