@@ -1,11 +1,11 @@
 <div class="trips-header">
-  <h1 class="trips">Your Trips</h1>
-  <h2 class="point-trips"> Total points: <%=current_user.total_points%> </h2>
+  <h2 class="point-trips"> Total points: <%=current_user.total_points%></h2>
+  <h2 class="eco-trips"> Eco-rating: <%= image_tag'leaf.png', class:"leaf-png"%></h2>
 </div>
 
 <div class="trips">
   <% @my_trips.each do |journey| %>
-    <div class="card-journey w-100">
+    <div class="card-trip">
       <% if journey.transportation == "cycling"%>
           <%= image_tag'bici.png', class:"image-cycling"%>
       <% elsif journey.transportation == "walking"%>
@@ -13,11 +13,11 @@
       <% elsif journey.transportation == "driving" %>
           <%= image_tag'conducir.png', class:"image-driving"%>
       <% end %>
-      <div class="km">
-        <h6 class= "m-0"><%= journey.total_emissions.round %>g</h6>
+      <div class="km-trip">
+        <h6 class= "m-0">CO<sub>2</sub> <%= journey.total_emissions.round %>g</h6>
         <h6 class= "m-0"><%= journey.points %> points</h6>
       </div>
-      <div class="time">
+      <div class="time-trip">
         <h6 class="m-0 text-center"><%= journey.created_at.strftime(" %e/%m") %></h6>
       </div>
     </div>
