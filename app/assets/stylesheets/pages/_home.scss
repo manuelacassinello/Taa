@@ -168,7 +168,9 @@ p {
   }
   100% {
     opacity: 0;
-    display: none;
+    z-index: -1;
+    transform: scale (0);
+    display: none !important;
   }
 }
 
