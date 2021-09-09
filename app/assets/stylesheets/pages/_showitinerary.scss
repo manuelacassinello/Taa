@@ -123,9 +123,22 @@ h4{
 
 .km{
   position: absolute;
-    right: 164px;
-    top: 23px;
-    line-height: 9px;
+  left: 62px;
+  top: 23px;
+  line-height: 9px;
+  display: flex;
+}
+
+.whiteleaves {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.whiteleaf {
+  height: 20px;
+  margin-left: 8px;
 }
 
 .decos{
