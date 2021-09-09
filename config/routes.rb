@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   get "travelpass", to: "pages#travelpass"
-  get 'my_trips', to: 'users#my_trips'
+  get "my_trips", to: "users#my_trips"
+  get "my_tree", to: "users#my_tree"
 end

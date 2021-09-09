@@ -6,4 +6,8 @@ class UsersController < ApplicationController
   def my_trips
 	  @my_trips = current_user.journeys.where(selected: true)
   end
+
+  def my_tree
+  end
+
 end
