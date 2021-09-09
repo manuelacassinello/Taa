@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   def eco_rating
-    possible_points = journeys.size * 30
+    possible_points = journeys.where(selected: true).size * 30
     current_points = total_points.to_f
     rating = current_points / possible_points
     (rating * 5).round
